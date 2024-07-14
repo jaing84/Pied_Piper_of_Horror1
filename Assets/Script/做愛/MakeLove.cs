@@ -47,15 +47,20 @@ public class MakeLove : MonoBehaviour
     public float speed;
     public float numbleValue1 = 1.7f;
     public bool 判定上下左右1Called = false;
+    TimerManager timerManager;
+  //  private bool gamePaused  = false;
     void Start()
     {
+        timerManager = GameObject.FindObjectOfType<TimerManager>();
+        if (timerManager == null)
+        {
+            Debug.LogError("TimerManager not found in the scene!");
+        }
         DisplayRandomImage();
         StartCountdown();
-       
- 
         //  StartCoroutine(Countdown());
         panelRect = panel1.GetComponent<RectTransform>();
-       
+        timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
     }
 
     void StartCountdown()
@@ -68,23 +73,25 @@ public class MakeLove : MonoBehaviour
 
     void 到計時() 
     {
- 
+
+
         if (isCountingDown)
         {
-            // 更新倒计时
+       
             timeRemaining -= Time.deltaTime;
 
-            // 更新UI显示
+          
             UpdateTimerDisplay(timeRemaining);
 
-            // 如果倒计时结束
+       
             if (timeRemaining <= 0)
             {
                 timeRemaining = 0;
-                HandleTimeUp(); // 倒计时结束时的处理
-                isCountingDown = false; // 停止倒计时
+                HandleTimeUp(); 
+                isCountingDown = false; 
             }
         }
+
     }
 
     void UpdateTimerDisplay(float time)
@@ -134,17 +141,19 @@ public class MakeLove : MonoBehaviour
     private void Update()
     {
 
-     
-        到計時();
-        if (!判定上下左右1Called)
+        if (!timerManager.isGamePaused)
         {
-            判定上下左右1();
-        }
+            到計時();
+            if (!判定上下左右1Called)
+            {
+                判定上下左右1();
+            }
 
-        UpdateHealthBar();
-        HandleInputModeA();
-        測試();
-        //  imagespeed = GameObject.Find("做愛UICanvas").GetComponent<Imagespeed>();
+            UpdateHealthBar();
+            HandleInputModeA();
+            測試();
+            //  imagespeed = GameObject.Find("做愛UICanvas").GetComponent<Imagespeed>();
+        }
     }
  
     void HandleInputModeA()

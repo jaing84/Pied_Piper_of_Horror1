@@ -73,6 +73,7 @@ namespace TESTING
             play11Image.sprite = image12;
             if (!architect.hurryUp)
                 architect.hurryUp = true;
+            SetSpeed(2.0f);
         }
         public void Text_Exit() 
         {
@@ -87,6 +88,24 @@ namespace TESTING
 
             if (!architect.hurryUp)
                 architect.hurryUp = false;
+            SetSpeed(1.0f);
+        }
+        public void SetSpeed(float speedMultiplier)
+        {
+            architect.speed = 0.5f / speedMultiplier; 
+        }
+        public void DoubleSpeed()
+        {
+            Image play11Image = play11.GetComponent<Image>();
+            SetSpeed(0.5f);
+            play11Image.sprite = image12;
+        }
+
+        public void QuadrupleSpeed()
+        {
+            Image play11Image = play11.GetComponent<Image>();
+            SetSpeed(0.25f);
+            play11Image.sprite = image13;
         }
 
     }

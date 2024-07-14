@@ -105,6 +105,8 @@ public class MagicSquareController : MonoBehaviour
 
     void MovePreset()
     {
+        
+         if (generatedPreset == null) return;
         Vector3 targetPosition = generatedPreset.transform.position;
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -123,7 +125,7 @@ public class MagicSquareController : MonoBehaviour
             return;
         }
         // 检查是否将移动导致超出范围
-       
+   
 
         // 如果按下W鍵，向上移動預置體
         if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
@@ -145,14 +147,20 @@ public class MagicSquareController : MonoBehaviour
         {
             targetPosition += Vector3.right * moveDistance;
         }
-  
+        RectTransform panelRectTransform = panelTransform.GetComponent<RectTransform>();
+        Rect panelRect = panelRectTransform.rect;
+
+
+        RectTransform generatedRectTransform = generatedPreset.GetComponent<RectTransform>();
+        Vector2 presetSize = generatedRectTransform.rect.size;
+
 
         // 检查是否与空气墙碰撞
-        if (!IsCollidingWithAirWall(targetPosition))
-        {
-            // 执行移动
-            generatedPreset.transform.position = targetPosition;
-        }
+           if (!IsCollidingWithAirWall(targetPosition))
+         {
+        // 执行移动
+        generatedPreset.transform.position = targetPosition;
+          }
     }
     bool IsCollidingWithAirWall(Vector3 targetPosition)
     {

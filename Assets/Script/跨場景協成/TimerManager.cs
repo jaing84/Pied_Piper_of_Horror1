@@ -8,6 +8,10 @@ public class TimerManager : MonoBehaviour
 {
     public Text countdownText;
     private Coroutine countdownCoroutine;
+    public bool Opennice = true;
+    public bool isPreparationCountdown = false;
+    public bool isGamePaused = false;
+    // private bool isCountingDown = false;
     private void OnEnable()
     {
         // 注册场景加载事件
@@ -21,7 +25,7 @@ public class TimerManager : MonoBehaviour
     }
     void Start()
     {
-        
+        StartCountdown();
     }
 
     // Update is called once per frame
@@ -62,28 +66,44 @@ public class TimerManager : MonoBehaviour
         {
             StopCoroutine(countdownCoroutine);
         }
+        isPreparationCountdown = true;
         countdownCoroutine = StartCoroutine(CountdownCoroutine());
     }
 
     private IEnumerator CountdownCoroutine()
     {
+        countdownText.gameObject.SetActive(true);
         int countdownTime = 3;
-
+        // isCountingDown = true;
+        // Opennice = true;
+        isGamePaused = true;
         while (countdownTime >=0)
         {
+          
             countdownText.text =  countdownTime.ToString();
             yield return new WaitForSeconds(1f);
             countdownTime--;
         }
         countdownText.gameObject.SetActive(false);
-
-
+        //  isCountingDown = false;
+        // Opennice = false;
+        isGamePaused = false;
+        isPreparationCountdown = false;
         Debug.Log("Countdown finished! Starting coroutine...");
 
 
       //StopCountdown();
     }
 
+    public bool IsPreparationCountdown()
+    {
+        return isPreparationCountdown;
+    }
+
+    public bool IsGamePaused()
+    {
+        return isGamePaused;
+    }
     private void StopCountdown()
     {
         if (countdownCoroutine != null)
@@ -92,4 +112,5 @@ public class TimerManager : MonoBehaviour
             countdownCoroutine = null;
         }
     }
+
 }
