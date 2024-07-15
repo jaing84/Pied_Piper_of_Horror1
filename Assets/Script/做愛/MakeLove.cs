@@ -31,7 +31,7 @@ public class MakeLove : MonoBehaviour
     private int initialScore = 0;
     public Image Bar;
     public float health = 0;
-    public float maxHealth = 50;
+    public float maxHealth = 100;
     public float _lerpSpeed = 30;
     public GameObject RandomMove;
     public GameObject panel1;
@@ -456,11 +456,11 @@ public class MakeLove : MonoBehaviour
     }
     public void AddHealth()
     {
-        health += 5;
+        health += 15;
     }
     public void niceHealth() 
     {
-        health += 1;
+        health += 5;
     }
     public void RedvceHealth()
     {
@@ -561,3 +561,4 @@ public class MakeLove : MonoBehaviour
     }
 
 }
+

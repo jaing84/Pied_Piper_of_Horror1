@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Start()
     {
-        // ¦b Start ¤èªk¤¤ªì©l¤Æ healthText
+        // ??Start ?å¯?éŠå‰–?æ†ªï•? healthText
       //  healthText = GetComponent<Text>();
 
         if (healthText == null)
@@ -29,36 +29,37 @@ public class PlayerHealth : MonoBehaviour
     public void RestoreHealth(int amount)
     {
         health += amount;
-        health = Mathf.Min(health, maxHealth); // ½T«O°·±d­È¤£¶W¹L³Ì¤j­È
+        health = Mathf.Min(health, maxHealth); // è£ç®”??äº™ç†’?æ½”?é ï†³??Â€æ†­æ‰¹Â€?
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            // ÀË¬d¦å¶q¬O§_¤j©ó 0¡A¥H½T«O¤£·|¦©°£¶W¹L³Ì¤p­Èªº¦å¶q
+            // ç‘¼ï¼¸î·éŠµÂ€?î²î¦€?è¡€ä¹‹??0åš—ï—¹èª‘è£ç®”?éŠïš˜???î¨’é ï†³??Â€æ’ î±Â€æ½›?éŠµÂ€??
             if (health > 0)
             {
-                // ¦©°£¦å¶q
+                // ??î¨’éŠµÂ€??
                 health -= damageAmount;
 
-                // ½T«O¦å¶q¤£·|¤p©ó 0
+                // è£ç®”?éŠµÂ€?î°??ïµ???0
                 health = Mathf.Max(health, 0);
             }
         }
 
         if (maxHealth > 0)
         {
-            // ³]¸m rectTransform ªº scale
+            // é–®å‰”è”­ rectTransform ??scale
             float newScaleX = health / maxHealth;
             Vector3 newScale = rectTransform.localScale;
             newScale.x = newScaleX;
             rectTransform.localScale = newScale;
         }
 
-        // §ó·s UI ¤å¥»
+        // ?æ¹”î¡‡ UI ?ï‹ªî¯±
         healthText.text = health + "/" + maxHealth;
         healthText2.text = health + "/" + maxHealth;
 
         
     }
 }
+

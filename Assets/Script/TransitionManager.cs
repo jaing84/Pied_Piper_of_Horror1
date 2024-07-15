@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -32,16 +32,16 @@ public class TransitionManager : Singleton<TransitionManager>
         }
         yield return SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
 
-        //³]¸m·s³õ´ºªº¿E¬¡³õ´º
+        //è¨­ç½®æ–°å ´æ™¯çš„æ¿€æ´»å ´æ™¯
         Scene newScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
         SceneManager.SetActiveScene(newScene);
 
         yield return Fade(0);
     }
     /// <summary>
-    /// ²H¤J²H¥X³õ´º
+    /// æ·¡å…¥æ·¡å‡ºå ´æ™¯
     /// </summary>
-    /// <param name="targetAlpha">1¬O¶Â0¬O¥Õ</param>
+    /// <param name="targetAlpha">1æ˜¯é»‘0æ˜¯ç™½</param>
     /// <returns></returns>
     private IEnumerator Fade(float targetAlpha)
     {
@@ -60,10 +60,11 @@ public class TransitionManager : Singleton<TransitionManager>
 
         isFade = false;
     }
-    public void CloseAllButtonSets(GameObject ¥\¯àpanple)
+    public void CloseAllButtonSets(GameObject åŠŸèƒ½panple)
     {
-        if (¥\¯àpanple != null)
-            ¥\¯àpanple.SetActive(false);
+        if (åŠŸèƒ½panple != null)
+            åŠŸèƒ½panple.SetActive(false);
 
     }
 }
+

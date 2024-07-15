@@ -14,13 +14,13 @@ public class TimerManager : MonoBehaviour
     // private bool isCountingDown = false;
     private void OnEnable()
     {
-        // 注册场景加载事件
+        // 瘜典??箸?蝸鈭辣
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
     {
-        // 注销场景加载事件
+        // 瘜券??箸?蝸鈭辣
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     void Start()
@@ -39,15 +39,15 @@ public class TimerManager : MonoBehaviour
 
         if (scene.name == "H4")
         {
-            // 确保 countdownText 绑定正确
+            // 蝖桐? countdownText 蝏?甇?＆
             if (countdownText != null)
             {
                 StartCountdown();
             }
             else
             {
-                // 如果 countdownText 未绑定成功，可以尝试在此处查找
-                countdownText = GameObject.Find("前置時間").GetComponent<Text>();
+                // 憒? countdownText ?芰?摰????臭誑撠??冽迨憭??
+                countdownText = GameObject.Find("?蔭??").GetComponent<Text>();
                 if (countdownText != null)
                 {
                     StartCountdown();
@@ -61,7 +61,7 @@ public class TimerManager : MonoBehaviour
     }
     private void StartCountdown()
     {
-        // 启动倒计时协程
+        // ?臬?恣?嗅?蝔?
         if (countdownCoroutine != null)
         {
             StopCoroutine(countdownCoroutine);
@@ -114,3 +114,4 @@ public class TimerManager : MonoBehaviour
     }
 
 }
+

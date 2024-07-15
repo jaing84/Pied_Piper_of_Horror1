@@ -1,12 +1,14 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
 public class Equip : ScriptableObject
 {
-    public string ¦WºÙ,¯Å§O;
-    public int ¥Í©R­È,¾Ô§ŞÂI,¨g®ğ­È,ª«²z§ğÀ»,ª«²z¨¾¿m,ºë¯«,ÃzÀ»¶Ë®`,³t«×;
-    public string ±Ô­z;
+    public string åç¨±, ç´šåˆ¥;
+    public int ç”Ÿå‘½å€¼, æˆ°æŠ€é», ç‹‚æ°£å€¼, ç‰©ç†æ”»æ“Š, ç‰©ç†é˜²ç¦¦, ç²¾ç¥, çˆ†æ“Šå‚·å®³, é€Ÿåº¦;
+    public string æ•˜è¿°;
+
 
 }
+

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -51,7 +51,7 @@ public class TextArchitect
         return buildProcess;
     }
     /// <summary>
-    /// Append text to what is already in the text architext.±N¤å¦rªþ¥[¨ì¤å¦r¤å¥ó¤¤¤w¦³ªº¤º®e
+    /// Append text to what is already in the text architext.å°‡æ–‡å­—é™„åŠ åˆ°æ–‡å­—æ–‡ä»¶ä¸­å·²æœ‰çš„å…§å®¹
     /// </summary>
     /// <param name="text"></param>
     /// <returns></returns>
@@ -252,3 +252,4 @@ public class TextArchitect
     }
     
 }
+

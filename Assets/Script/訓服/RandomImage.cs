@@ -933,3 +933,4 @@ public class RandomImage : MonoBehaviour
         UpdateSkillBars();
     }
 }
+

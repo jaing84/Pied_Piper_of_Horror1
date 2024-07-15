@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
@@ -17,11 +17,11 @@ namespace TESTING
         // Start is called before the first frame update
         string[] lines = new string[5]
         {
-            "§Ú¬O«Ó­ô",
-            "­n¨Ó¥´¬¶¶Ü",
-            "§Ú«Ü¬İ¦n©p",
-            "§Ú¥i¥HÅı©pµ´³»",
-            "§Ú­n¾ŞÃz©p"
+            "æ–‡æœ¬æ–‡æœ¬æ–‡æœ¬1",
+            "æ–‡æœ¬æ–‡æœ¬æ–‡æœ¬2",
+            "æ–‡æœ¬æ–‡æœ¬æ–‡æœ¬3",
+            "æ–‡æœ¬æ–‡æœ¬æ–‡æœ¬4",
+            "æ–‡æœ¬æ–‡æœ¬æ–‡æœ¬5"
         };
             
         
@@ -45,7 +45,7 @@ namespace TESTING
                 architect.Stop();
             
            
-            string longLine = "³o¬O¤@±ø«Üªøªº½u¡A²@µL·N¸q¡A¦]¬°§Ú¥u¬O¦b¸Ì­±¶ëº¡ªF¦è¡A¦]¬°¡A§Aª¾¹D¡AªF¦è«Ü¦n¡A¹ï§a¡H§Ú³ßÅwªF¦è¡A§A¤]³ßÅwªF¦è¡A§Ú­Ì³£³ßÅwªF¦è¡A©Ò¥Hµ¹§Ú¾Ş§a!";
+            string longLine = "é€™æ˜¯ä¸€æ¢å¾ˆé•·çš„ç·šï¼Œæ¯«ç„¡æ„ç¾©ï¼Œå› ç‚ºæˆ‘åªæ˜¯åœ¨è£¡é¢å¡æ»¿æ±è¥¿ï¼Œå› ç‚ºï¼Œä½ çŸ¥é“ï¼Œæ±è¥¿å¾ˆå¥½ï¼Œå°å§ï¼Ÿæˆ‘å–œæ­¡æ±è¥¿ï¼Œä½ ä¹Ÿå–œæ­¡æ±è¥¿ï¼Œæˆ‘å€‘éƒ½å–œæ­¡æ±è¥¿ï¼Œæ‰€ä»¥çµ¦æˆ‘æ“å§!";
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 
@@ -110,3 +110,4 @@ namespace TESTING
 
     }
 }
+

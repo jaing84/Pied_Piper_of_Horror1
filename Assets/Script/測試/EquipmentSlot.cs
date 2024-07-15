@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -101,7 +101,7 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
                 {
                     if (equipmentSOLibrary.equipmentSO[i].itemName == this.itemName)
                         equipmentSOLibrary.equipmentSO[i].PreviewEquipment();
-                    Debug.Log("´ú¸Õ" + i);
+                    Debug.Log("æ¸¬è©¦" + i);
                 }
 
             }
@@ -202,3 +202,4 @@ public class EquipmentSlot : MonoBehaviour, IPointerClickHandler
    //     throw new NotImplementedException();
    // }
 }
+

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,10 +31,11 @@ public class Addequip : MonoBehaviour
             return;
         }
 
-        // ±q¹w»sÅé¼Æ²Õ¤¤ÀH¾÷¿ï¾Ü¤@­Ó¹w»sÅé
+        // æ•ºîµ¨?é‹†è³¡??è²Š?éŠå‰îª³ç’ˆî¸…î¼?ï‹¨??ï•¡?é‹†è³¡?
         GameObject randomPrefab = equipmentPrefabsS[Random.Range(0, equipmentPrefabsS.Length)];
 
-        // ¦b³õ´º¤¤¥Í¦¨¿ï¤¤ªº¹w»sÅé
+        // ?å…¸î¹­?è‡­è‘‰?î¸‚??è¨¾è‘‰?ï„–?é‹†è³¡?
         Instantiate(randomPrefab, transform.position, Quaternion.identity);
     }
 }
+

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -93,7 +93,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     void OnRightClick() 
     {
 
-        if (itemName != null)  // ÀË¬d¬O§_¤w¸g¸Ë³Æ¤Fª««~
+        if (itemName != null)  // æª¢æŸ¥æ˜¯å¦å·²ç¶“è£å‚™äº†ç‰©å“
         {
             UnEquipGear();
         }
@@ -135,7 +135,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
                 
 
                     equipmentSOLibrary.equipmentSO[i].EquipItem();
-                Debug.Log("´ú¸Õ¤@" + i+ "/"+playerstats.weight);
+                Debug.Log("æ¸¬è©¦ä¸€" + i+ "/"+playerstats.weight);
                     if ((playerstats.weight) > playerstats.maxweight)
                     {
                         // If it exceeds, revert the changes and inform the player
@@ -173,7 +173,7 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
             {
                 if (equipmentSOLibrary.equipmentSO[i].itemName == this.itemName)
                     equipmentSOLibrary.equipmentSO[i].UnEquipItem();
-                Debug.Log("´ú¸Õ¤G" + i);
+                Debug.Log("æ¸¬è©¦äºŒ" + i);
 
             }
 
@@ -185,3 +185,4 @@ public class EquippedSlot : MonoBehaviour, IPointerClickHandler
     }
 
 }
+

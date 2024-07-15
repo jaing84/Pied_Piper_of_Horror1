@@ -14,6 +14,7 @@ public class PresetCollisionController : MonoBehaviour
     {
         // 初始化时隐藏UI元素
         確認鍵1.SetActive(false);
+
     }
 
     void Update()
@@ -39,6 +40,7 @@ public class PresetCollisionController : MonoBehaviour
 
         // 根据重叠情况显示或隐藏确认按钮
         確認鍵1.SetActive(isOverlapping);
+
     }
 
     bool IsOverlapping(GameObject other)
@@ -55,3 +57,4 @@ public class PresetCollisionController : MonoBehaviour
         return coll.bounds.Intersects(otherColl.bounds);
     }
 }
+

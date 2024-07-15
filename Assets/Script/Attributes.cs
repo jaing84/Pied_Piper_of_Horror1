@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
@@ -11,21 +11,21 @@ public class Attributes : MonoBehaviour
     public float MaxHP = 100f;
     public float MP;
     public float MaxMP = 50f;
-    public float Strength;             //¤O¶q
-    public float Spirit;               //ºë¯«
-    public float Constitution;         //Åé½è 
-    public float Agile;                //±Ó±¶
-    public float Luck;                 //©¯¹B
-    public float MagicAttack;          //Å]§ğ 
-    public float MagicDefense;         //Å]¨¾
-    public float PhysicalAttack;       //ª«§ğ
-    public float PhysicalDefense;      //ª«¨¾
-    public float Dodge;                //°{Á× 
-    public float Speed;                //³t«×
-    public float CriticalHit;          //¼ÉÀ»
-    public float Block;                //®æ¾×
-    public float Batter;               //³sÀ»
-    public float Counterattack;        //¤ÏÀ»
+    public float Strength;             //?î®‘?
+    public float Spirit;               //èæ›„?
+    public float Constitution;         //æ“ƒî…é‡­ 
+    public float Agile;                //?î²ï™©
+    public float Luck;                 //æ’Ÿè³Š?
+    public float MagicAttack;          //æ“³îƒîœ˜ 
+    public float MagicDefense;         //æ“³î†î¦ƒ
+    public float PhysicalAttack;       //?æ‹‡îœ˜
+    public float PhysicalDefense;      //?æ‹šî¦ƒ
+    public float Dodge;                //?ï¹î¼• 
+    public float Speed;                //?î¸æ¼²
+    public float CriticalHit;          //?æ¹”?
+    public float Block;                //?æ½­?
+    public float Batter;               //???
+    public float Counterattack;        //?ïš˜?
 
     public Text Strengthvalue;
     public Text Spiritvalue;
@@ -71,23 +71,23 @@ public class Attributes : MonoBehaviour
 
     public void AddStrength()
     {
-        // °²³]¨C¼W¥[ 1 ÂI¤O¶q¡Aª«§ğ¼W¥[ 5
-        float strengthIncrease = 1f; // ¨C¦¸¼W¥[ªº¤O¶q¼Æ¶q
-        float physicalAttackIncrease = 5f; // ¨C¦¸¼W¥[ªºª«²z§ğÀ»¼Æ¶q
+        // ?ï‹¬èº«ç˜¥î±???1 æšºîµ¤??î»??æ‹‡îœ˜æ†“îµ¤? 5
+        float strengthIncrease = 1f; // ç˜¥î²æ´»æ†“îµ¤??ï„’??î²î²??
+        float physicalAttackIncrease = 5f; // ç˜¥î²æ´»æ†“îµ¤??ï„”ï§?ï‰îœ˜?ï“î²??
 
-        // ¼W¥[¤O¶q
+        // æ†“îµ¤??î®‘?
         Strength += strengthIncrease;
 
-        // ®Ú¾Ú¨CÂI¤O¶q¼W¥[ªºª«²z§ğÀ»¼Æ¶q¡A§ó·sª«²z§ğÀ»
+        // ?å¯?ç˜¥îµ??î®‘?æ†“îµ¤??ï„”ï§?ï‰îœ˜?ï“î²?î»??æ¹”î¡‡?æ‹??é¤…?
         PhysicalAttack += strengthIncrease * physicalAttackIncrease;
-        Debug.Log("¸}¥» A ¤¤ªºÂIÀ»¨Æ¥ó¤wÄ²µo¡I");
+        Debug.Log("?å–®î¯± A éŠå‰”?æšºîµ¥?éˆ­ï•œè¾£æ’Œè„°å­›?æ½˜?");
         UpdateStrengthText();
     }
     void UpdateStrengthText()
     {
         if (Strengthvalue != null)
         {
-            // ±N Strength ªº­ÈÂà´«¬°¦r¦ê¡A¨Ã§ó·s¨ì UI ¤å¥»
+            // æ’ ?Strength ?ï„’Â€æ½¸??î®î¾­æ‘®î¤˜è‘¡åš—ï—¹è’‚?æ¹”î¡‡??UI ?ï‹ªî¯±
             Strengthvalue.text = Strength.ToString();
             PhysicalAttackvalue.text = PhysicalAttack.ToString();
         }
@@ -97,3 +97,4 @@ public class Attributes : MonoBehaviour
         }
     }
 }
+

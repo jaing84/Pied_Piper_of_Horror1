@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -129,7 +129,7 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
             itemDescriptionImage.sprite = itemSprite;
             if (itemDescriptionImage.sprite == null)
                 itemDescriptionImage.sprite = emptySprite;
-            Debug.Log("´ú¸Õ3");
+            Debug.Log("æ¸¬è©¦3");
         }
  
 
@@ -188,3 +188,4 @@ public class ItemSlot : MonoBehaviour, IPointerClickHandler
         throw new NotImplementedException();
     }
 }
+

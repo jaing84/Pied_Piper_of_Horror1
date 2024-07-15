@@ -1,21 +1,21 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class BlockGenerator : MonoBehaviour
 {
-    public GameObject[] blockPrefabs; // ¥]§t©Ò¦³¥i¯à¤è¶ôªº¹w»sÅé
-    public KeyCode generateKey = KeyCode.B; // ¥Í¦¨¤è¶ôªº«öÁä
+    public GameObject[] blockPrefabs; // åŒ…å«æ‰€æœ‰å¯èƒ½æ–¹å¡Šçš„é è£½é«”
+    public KeyCode generateKey = KeyCode.B; // ç”Ÿæˆæ–¹å¡Šçš„æŒ‰éµ
     public Transform playerTransform;
-    public float minDistance = 3f; // ³Ì¤p¥Í¦¨¶ZÂ÷
-    public float maxDistance = 5f; // ³Ì¤j¥Í¦¨¶ZÂ÷
+    public float minDistance = 3f; // æœ€å°ç”Ÿæˆè·é›¢
+    public float maxDistance = 5f; // æœ€å¤§ç”Ÿæˆè·é›¢
 
-    public float blockSpacing = 0.3f; // ¤è¶ô¶¡¶Z
+    public float blockSpacing = 0.3f; // æ–¹å¡Šé–“è·
 
 
 
-    // Update ¨C¤@´V³£·|³Q½Õ¥Î
+    // Update æ¯ä¸€å¹€éƒ½æœƒè¢«èª¿ç”¨
     void Update()
     {
         if (Input.GetKeyDown(generateKey))
@@ -26,34 +26,34 @@ public class BlockGenerator : MonoBehaviour
 
     void GenerateBlock()
     {
-        // ÀH¾÷¥Í¦¨ 3 ¨ì 6 ­Ó¤è¶ô
+        // éš¨æ©Ÿç”Ÿæˆ 3 åˆ° 6 å€‹æ–¹å¡Š
         int blockCount = Random.Range(3, 6);
 
-        // ÀH¾÷¿ï¾Ü¥D­n¤¤¤ß¤è¶ô
+        // éš¨æ©Ÿé¸æ“‡ä¸»è¦ä¸­å¿ƒæ–¹å¡Š
         int mainBlockIndex = Random.Range(0, blockCount);
 
-        // ¥Í¦¨¥D­n¤¤¤ß¤è¶ô
+        // ç”Ÿæˆä¸»è¦ä¸­å¿ƒæ–¹å¡Š
         Vector3 mainBlockPosition = GetRandomSpawnPosition();
         Instantiate(blockPrefabs[mainBlockIndex], mainBlockPosition, Quaternion.identity);
 
-        // ¥Í¦¨«ü©w¼Æ¶qªº¤è¶ô
+        // ç”ŸæˆæŒ‡å®šæ•¸é‡çš„æ–¹å¡Š
         for (int i = 0; i < blockCount; i++)
         {
             if (i != mainBlockIndex)
             {
-                // ¦bx¶b©Îy¶b¤W³]¸m°¾²¾¶q
+                // åœ¨xè»¸æˆ–yè»¸ä¸Šè¨­ç½®åç§»é‡
                 float offsetX = 0f;
                 float offsetY = 0f;
-                if (Random.value < 0.5f) // 50%ªº·§²v¦bx¶b¤W²¾°Ê
+                if (Random.value < 0.5f) // 50%çš„æ¦‚ç‡åœ¨xè»¸ä¸Šç§»å‹•
                 {
                     offsetX = Random.Range(-0.3f, 0.3f);
                 }
-                else // 50%ªº·§²v¦by¶b¤W²¾°Ê
+                else // 50%çš„æ¦‚ç‡åœ¨yè»¸ä¸Šç§»å‹•
                 {
                     offsetY = Random.Range(-0.3f, 0.3f);
                 }
 
-                // ¥Í¦¨¨ä¥L¤è¶ô¨Ã®Ú¾Ú°¾²¾¶q½Õ¾ã¦ì¸m
+                // ç”Ÿæˆå…¶ä»–æ–¹å¡Šä¸¦æ ¹æ“šåç§»é‡èª¿æ•´ä½ç½®
                 Vector3 blockPosition = mainBlockPosition + new Vector3(offsetX * blockSpacing, offsetY * blockSpacing, 0f);
                 Instantiate(blockPrefabs[i], blockPosition, Quaternion.identity);
             }
@@ -61,9 +61,9 @@ public class BlockGenerator : MonoBehaviour
     }
     Vector3 GetRandomSpawnPosition()
     {
-        Vector2 randomDirection = Random.insideUnitCircle.normalized; // ÀH¾÷¤è¦V
-        float randomDistance = Random.Range(minDistance, maxDistance); // ÀH¾÷¶ZÂ÷
-        Vector3 spawnPosition = playerTransform.position + new Vector3(randomDirection.x, randomDirection.y, 0f) * randomDistance; // ®Ú¾Ú¨¤¦â¦ì¸m©MÀH¾÷¤è¦V¶ZÂ÷¥Í¦¨¦ì¸m
+        Vector2 randomDirection = Random.insideUnitCircle.normalized; // éš¨æ©Ÿæ–¹å‘
+        float randomDistance = Random.Range(minDistance, maxDistance); // éš¨æ©Ÿè·é›¢
+        Vector3 spawnPosition = playerTransform.position + new Vector3(randomDirection.x, randomDirection.y, 0f) * randomDistance; // æ ¹æ“šè§’è‰²ä½ç½®å’Œéš¨æ©Ÿæ–¹å‘è·é›¢ç”Ÿæˆä½ç½®
         return spawnPosition;
     }
 }

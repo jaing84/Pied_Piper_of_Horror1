@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,70 +15,72 @@ public class Show : MonoBehaviour
     public GameObject show7;
 
     // Start is called before the first frame update
+
+    // Start is called before the first frame update
     void Start()
     {
-        
+
     }
-    public void ≈„•‹() 
+    public void È°ØÁ§∫()
     {
-       show.SetActive(true);
+        show.SetActive(true);
     }
-    public void ¡Ù¬√()
+    public void Èö±Ëóè()
     {
         show.SetActive(false);
     }
-    public void ≈„•‹1()
+    public void È°ØÁ§∫1()
     {
         show1.SetActive(true);
     }
-    public void ¡Ù¬√1()
+    public void Èö±Ëóè1()
     {
         show1.SetActive(false);
     }
-    public void ≈„•‹2()
+    public void È°ØÁ§∫2()
     {
         show2.SetActive(true);
     }
-    public void ¡Ù¬√2()
+    public void Èö±Ëóè2()
     {
         show2.SetActive(false);
     }
-    public void ≈„•‹3()
+    public void È°ØÁ§∫3()
     {
         show3.SetActive(true);
         show5.SetActive(true);
     }
-    public void ¡Ù¬√3()
+    public void Èö±Ëóè3()
     {
         show3.SetActive(false);
         show5.SetActive(false);
     }
-    public void ≈„•‹4()
+    public void È°ØÁ§∫4()
     {
         show4.SetActive(true);
     }
-    public void ¡Ù¬√4()
+    public void Èö±Ëóè4()
     {
         show4.SetActive(false);
     }
-    public void ™¶^¡‰()
+    public void ËøîÂõûÈçµ()
     {
- 
-            if (show3 != null && show3.activeSelf)
-            {
-                show3.SetActive(false);
-                show5.SetActive(false);
-        }
-            else if (show2 != null && show2.activeSelf)
-            {
-                show2.SetActive(false);
-            }
 
-            else if (show1 != null && show1.activeSelf)
-            {
-                show1.SetActive(false);
-            }
-        
+        if (show3 != null && show3.activeSelf)
+        {
+            show3.SetActive(false);
+            show5.SetActive(false);
+        }
+        else if (show2 != null && show2.activeSelf)
+        {
+            show2.SetActive(false);
+        }
+
+        else if (show1 != null && show1.activeSelf)
+        {
+            show1.SetActive(false);
+        }
+
     }
     // Update is called once per frame
     void Update()
@@ -131,4 +133,6 @@ public class Show : MonoBehaviour
             }
         }
     }
+
 }
+

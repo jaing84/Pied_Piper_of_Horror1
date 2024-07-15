@@ -1,26 +1,28 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Show3 : MonoBehaviour
 {
     public GameObject show;
-    public void ≈„•‹()
+    public void È°ØÁ§∫()
     {
         show.SetActive(true);
     }
-    public void ¡Ù¬√()
+    public void Èö±Ëóè()
     {
         show.SetActive(false);
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
 }
+

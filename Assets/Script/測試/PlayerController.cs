@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
    // private PhysicsCheck physicsCheck;
     public Vector2 _moveInput;
     private SpriteRenderer _spriteRenderer;
-    [Header("∞Ú•ª∞—º∆")]
+    [Header("?ÁÆ∏ÓØ±?ÔÅ∂Óû≤")]
     public float speed;
     public float jumpFarce;
     private void Awake()
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
          if (_moveInput.x < 0)
             _spriteRenderer.flipX = false;
 
-        //§H™´¬Ω¬‡
+        //Èà≠ÁÆáÔèßËùßÈ§â?
         transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
     }
 
@@ -69,3 +69,4 @@ public class PlayerController : MonoBehaviour
     }
 
 }
+

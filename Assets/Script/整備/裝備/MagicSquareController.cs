@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class MagicSquareController : MonoBehaviour
 {
     public GameObject prefab2;
-    public Equip [] equips;
+    public Equip[] equips;
     public GameObject presetPrefab; // 預置體的Prefab
     public List<Transform> equipPositions;
     public Transform panelTransform; // Panel的Transform
@@ -61,7 +61,7 @@ public class MagicSquareController : MonoBehaviour
         }
 
     }
-    public void 顯示() 
+    public void 顯示()
     {
         確認鍵.SetActive(true);
         點選件.SetActive(true);
@@ -105,12 +105,10 @@ public class MagicSquareController : MonoBehaviour
 
     void MovePreset()
     {
-        
-         if (generatedPreset == null) return;
         Vector3 targetPosition = generatedPreset.transform.position;
         if (Input.GetKeyDown(KeyCode.Z))
         {
-           
+
             canMove = !canMove; // 切换 canMove 的状态
             AlignToBestPosition();
             右名稱.text = "拼裝腎上腺素生成核心";
@@ -125,10 +123,10 @@ public class MagicSquareController : MonoBehaviour
             return;
         }
         // 检查是否将移动导致超出范围
-   
+
 
         // 如果按下W鍵，向上移動預置體
-        if (Input.GetKeyDown(KeyCode.W)|| Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             targetPosition += Vector3.up * moveDistance;
         }
@@ -147,20 +145,14 @@ public class MagicSquareController : MonoBehaviour
         {
             targetPosition += Vector3.right * moveDistance;
         }
-        RectTransform panelRectTransform = panelTransform.GetComponent<RectTransform>();
-        Rect panelRect = panelRectTransform.rect;
-
-
-        RectTransform generatedRectTransform = generatedPreset.GetComponent<RectTransform>();
-        Vector2 presetSize = generatedRectTransform.rect.size;
 
 
         // 检查是否与空气墙碰撞
-           if (!IsCollidingWithAirWall(targetPosition))
-         {
-        // 执行移动
-        generatedPreset.transform.position = targetPosition;
-          }
+        if (!IsCollidingWithAirWall(targetPosition))
+        {
+            // 执行移动
+            generatedPreset.transform.position = targetPosition;
+        }
     }
     bool IsCollidingWithAirWall(Vector3 targetPosition)
     {
@@ -313,4 +305,5 @@ public class MagicSquareController : MonoBehaviour
         playerValues.裝備精神 = 右數值11;
         playerValues.裝備速度 = 右數值21;
     }
+
 }

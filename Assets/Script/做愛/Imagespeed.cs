@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,9 +15,9 @@ public class Imagespeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ´ú¸Õ();
+        æ¸¬è©¦();
     }
-    public void ´ú¸Õ() 
+    public void æ¸¬è©¦() 
     {
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) ||
                Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
@@ -54,3 +54,4 @@ public class Imagespeed : MonoBehaviour
         get { return numble1; }
     }
 }
+

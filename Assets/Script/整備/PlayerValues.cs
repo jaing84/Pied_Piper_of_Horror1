@@ -1,39 +1,41 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerValues : MonoBehaviour
 {
-    public Text ©Çª«¦W;
-    public Text §ğÀ»;
-    public Text ¨¾¿m;
-    public int ³t«×;
-    public int ºë¯«;
-    public Text ³Ì¤j¦å¶q;
-    public int ¥Ø«e¦å¶q;
-    public Text ³Ì¤j¨g®ğ­È;
-    public int ¥Ø«e¨g®ğ­È;
-    public Text ÃzÀ»²v;
-    public Text ÃzÀ»¶Ë®`;
-    public int ¸Ë³Æ³t«×;
-    public int ¸Ë³Æºë¯«;
+    public Text æ€ªç‰©å;
+    public Text æ”»æ“Š;
+    public Text é˜²ç¦¦;
+    public int é€Ÿåº¦;
+    public int ç²¾ç¥;
+    public Text æœ€å¤§è¡€é‡;
+    public int ç›®å‰è¡€é‡;
+    public Text æœ€å¤§ç‹‚æ°£å€¼;
+    public int ç›®å‰ç‹‚æ°£å€¼;
+    public Text çˆ†æ“Šç‡;
+    public Text çˆ†æ“Šå‚·å®³;
+    public int è£å‚™é€Ÿåº¦;
+    public int è£å‚™ç²¾ç¥;
     public Battlesystem battlesystem;
     public MagicSquareController magicSquareController;
-    public Text ¦XÅé³t«×Text;
-    public Text ¦XÅéºë¯«Text;
+    public Text åˆé«”é€Ÿåº¦Text;
+    public Text åˆé«”ç²¾ç¥Text;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        int ¦XÅé³t«× = ³t«× + ¸Ë³Æ³t«×;
-        int ¦XÅéºë¯« = ºë¯« + ¸Ë³Æºë¯«;
+        int åˆé«”é€Ÿåº¦ = é€Ÿåº¦ + è£å‚™é€Ÿåº¦;
+        int åˆé«”ç²¾ç¥ = ç²¾ç¥ + è£å‚™ç²¾ç¥;
 
-        ¦XÅé³t«×Text.text = ¦XÅé³t«×.ToString();
-        ¦XÅéºë¯«Text.text = ¦XÅéºë¯«.ToString();
+        åˆé«”é€Ÿåº¦Text.text = åˆé«”é€Ÿåº¦.ToString();
+        åˆé«”ç²¾ç¥Text.text = åˆé«”ç²¾ç¥.ToString();
     }
+
 }
+
