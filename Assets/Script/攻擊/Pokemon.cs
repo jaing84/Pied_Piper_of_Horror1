@@ -1,145 +1,145 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 public class Pokemon : MonoBehaviour
 {
-    public string ©Çª«¦W;
-    public int §ğÀ»;
-    public int ·s¨¾¿m;
-    public int ¨¾¿m;
-    public int ³t«×;
-    public int ºë¯«;
-    public int ³Ì¤j¦å¶q;
-    public int ¥Ø«e¦å¶q;
-    public int ³Ì¤j¨g®ğ­È;
-    public int ¥Ø«e¨g®ğ­È;
-    public int ÃzÀ»²v;
-    public int ÃzÀ»¶Ë®`;
-    public int ªvÂ¡;
+    public string æ€ªç‰©å;
+    public int æ”»æ“Š;
+    public int æ–°é˜²ç¦¦;
+    public int é˜²ç¦¦;
+    public int é€Ÿåº¦;
+    public int ç²¾ç¥;
+    public int æœ€å¤§è¡€é‡;
+    public int ç›®å‰è¡€é‡;
+    public int æœ€å¤§ç‹‚æ°£å€¼;
+    public int ç›®å‰ç‹‚æ°£å€¼;
+    public int çˆ†æ“Šç‡;
+    public int çˆ†æ“Šå‚·å®³;
+    public int æ²»ç™’;
     private bool isDefending = false;
     private bool isDefending1 = false;
-    public int ªì©l³t«×­È;
+    public int åˆå§‹é€Ÿåº¦å€¼;
 
     void Start()
     {
-        ªì©l³t«×­È = ³t«×; // ¦bStart¤èªk¤¤ªì©l¤Æªì©l³t«×­È¬°³t«×ªºªì©l­È
+        åˆå§‹é€Ÿåº¦å€¼ = é€Ÿåº¦; // åœ¨Startæ–¹æ³•ä¸­åˆå§‹åŒ–åˆå§‹é€Ÿåº¦å€¼ç‚ºé€Ÿåº¦çš„åˆå§‹å€¼
     }
-    public bool TakeDamage(int §ğÀ» , int ¨¾¿m)
+    public bool TakeDamage(int æ”»æ“Š, int é˜²ç¦¦)
     {
         if (isDefending && isDefending1)
         {
-            ¨¾¿m *= (int)(1.1 * 2);
-        }
-        else if (isDefending1 ) 
-        {
-            ¨¾¿m *= (int)(1.1);
-        }
-        else if (isDefending ) 
-        {
-            ¨¾¿m *= 2;
-        }
-        int ¶Ë®` = §ğÀ» - ·s¨¾¿m;
-        ¥Ø«e¦å¶q -= ¶Ë®`;
-        if (¥Ø«e¦å¶q <= 0)
-            return true;
-        else
-            return false;
-    }
-    public bool TakeDamage1(int §ğÀ», int ¨¾¿m)
-    {
-        if (isDefending && isDefending1)
-        {
-            ¨¾¿m *= (int)(1.1 * 2);
+            é˜²ç¦¦ *= (int)(1.1 * 2);
         }
         else if (isDefending1)
         {
-            ¨¾¿m *= (int)(1.1);
+            é˜²ç¦¦ *= (int)(1.1);
         }
         else if (isDefending)
         {
-            ¨¾¿m *= 2;
+            é˜²ç¦¦ *= 2;
         }
-        int ¶Ë®` = (int)(§ğÀ» * 2.5 - ·s¨¾¿m); 
-        ¥Ø«e¦å¶q -= ¶Ë®`;
-        if (¥Ø«e¦å¶q <= 0)
+        int å‚·å®³ = æ”»æ“Š - æ–°é˜²ç¦¦;
+        ç›®å‰è¡€é‡ -= å‚·å®³;
+        if (ç›®å‰è¡€é‡ <= 0)
             return true;
         else
             return false;
     }
-    public bool Takepuncture(int §ğÀ») 
+    public bool TakeDamage1(int æ”»æ“Š, int é˜²ç¦¦)
     {
-        int ¶Ë®` = (int)(§ğÀ» * 0.2);
-        ¥Ø«e¦å¶q -= ¶Ë®`;
-        if (¥Ø«e¦å¶q <= 0)
+        if (isDefending && isDefending1)
+        {
+            é˜²ç¦¦ *= (int)(1.1 * 2);
+        }
+        else if (isDefending1)
+        {
+            é˜²ç¦¦ *= (int)(1.1);
+        }
+        else if (isDefending)
+        {
+            é˜²ç¦¦ *= 2;
+        }
+        int å‚·å®³ = (int)(æ”»æ“Š * 2.5 - æ–°é˜²ç¦¦);
+        ç›®å‰è¡€é‡ -= å‚·å®³;
+        if (ç›®å‰è¡€é‡ <= 0)
+            return true;
+        else
+            return false;
+    }
+    public bool Takepuncture(int æ”»æ“Š)
+    {
+        int å‚·å®³ = (int)(æ”»æ“Š * 0.2);
+        ç›®å‰è¡€é‡ -= å‚·å®³;
+        if (ç›®å‰è¡€é‡ <= 0)
             return true;
         else
             return false;
     }
 
-    public bool Defense(int ¨¾¿m) 
+    public bool Defense(int é˜²ç¦¦)
     {
         if (isDefending1)
         {
-            ·s¨¾¿m = (int)(¨¾¿m * 2*1.1);
+            æ–°é˜²ç¦¦ = (int)(é˜²ç¦¦ * 2 * 1.1);
             isDefending = true;
             return true;
         }
-        else 
+        else
         {
-            ·s¨¾¿m = ¨¾¿m * 2;
+            æ–°é˜²ç¦¦ = é˜²ç¦¦ * 2;
             isDefending = true;
             return true;
         }
     }
-    public bool Defense1(int ¨¾¿m)
+    public bool Defense1(int é˜²ç¦¦)
     {
         if (isDefending)
         {
-            ·s¨¾¿m = (int)(¨¾¿m * 1.1*2);
+            æ–°é˜²ç¦¦ = (int)(é˜²ç¦¦ * 1.1 * 2);
             isDefending1 = true;
             return true;
         }
-        else 
+        else
         {
-            ·s¨¾¿m = (int)(¨¾¿m * 1.1);
+            æ–°é˜²ç¦¦ = (int)(é˜²ç¦¦ * 1.1);
             isDefending1 = true;
             return true;
         }
     }
-    public bool MagicDamage(int ºë¯«, int ¨¾¿m)
+    public bool MagicDamage(int ç²¾ç¥, int é˜²ç¦¦)
     {
-        int ¶Ë®` = ºë¯«*2 - ¨¾¿m;
+        int å‚·å®³ = ç²¾ç¥ * 2 - é˜²ç¦¦;
 
-        if (¥Ø«e¦å¶q <= 0)
+        if (ç›®å‰è¡€é‡ <= 0)
             return true;
         else
-            return false;    
+            return false;
     }
-    public void ¨g®ğ­È(int ºë¯«)
+    public void ç‹‚æ°£å€¼(int ç²¾ç¥)
     {
-        int ¼W¥[ = (int)(ºë¯« * 0.25);
-        ¥Ø«e¨g®ğ­È += ¼W¥[;
+        int å¢åŠ  = (int)(ç²¾ç¥ * 0.25);
+        ç›®å‰ç‹‚æ°£å€¼ += å¢åŠ ;
     }
-    
-    public void forever(int ¨Ï¥ÎªÌ³t«× , float ³t«×´î¯q²v) 
+
+    public void forever(int ä½¿ç”¨è€…é€Ÿåº¦, float é€Ÿåº¦æ¸›ç›Šç‡)
     {
-        int ¦^¦å = (int)(¨Ï¥ÎªÌ³t«× * 1.5f);
-        ¥Ø«e¦å¶q += ¦^¦å;
-        if(¥Ø«e¦å¶q>³Ì¤j¦å¶q) 
-            ¥Ø«e¦å¶q = ³Ì¤j¦å¶q;
-        Debug.Log("¥Í©R¦^´_: " + ¦^¦å + ", ³t«×´î¯q: " + (³t«×´î¯q²v * 100) + "%");
+        int å›è¡€ = (int)(ä½¿ç”¨è€…é€Ÿåº¦ * 1.5f);
+        ç›®å‰è¡€é‡ += å›è¡€;
+        if (ç›®å‰è¡€é‡ > æœ€å¤§è¡€é‡)
+            ç›®å‰è¡€é‡ = æœ€å¤§è¡€é‡;
+        Debug.Log("ç”Ÿå‘½å›å¾©: " + å›è¡€ + ", é€Ÿåº¦æ¸›ç›Š: " + (é€Ÿåº¦æ¸›ç›Šç‡ * 100) + "%");
 
     }
- 
-    public bool ªvÂ¡§Ş¯à(int ªvÂ¡)
+
+    public bool æ²»ç™’æŠ€èƒ½(int æ²»ç™’)
 
     {
-        ¥Ø«e¦å¶q += ªvÂ¡;
-        if(¥Ø«e¦å¶q>= ³Ì¤j¦å¶q)
-           return true;
-        else 
+        ç›®å‰è¡€é‡ += æ²»ç™’;
+        if (ç›®å‰è¡€é‡ >= æœ€å¤§è¡€é‡)
+            return true;
+        else
             return false;
     }
     public bool IsDefending()
@@ -154,11 +154,11 @@ public class Pokemon : MonoBehaviour
     {
         if (isDefending1)
         {
-            ·s¨¾¿m = (int)(¨¾¿m*1.2);
+            æ–°é˜²ç¦¦ = (int)(é˜²ç¦¦ * 1.2);
         }
-        else 
+        else
         {
-            ·s¨¾¿m = ¨¾¿m;
+            æ–°é˜²ç¦¦ = é˜²ç¦¦;
         }
         isDefending = false;
     }
@@ -166,12 +166,14 @@ public class Pokemon : MonoBehaviour
     {
         if (isDefending)
         {
-            ·s¨¾¿m = (¨¾¿m * 2);
+            æ–°é˜²ç¦¦ = (é˜²ç¦¦ * 2);
         }
         else
         {
-            ·s¨¾¿m = ¨¾¿m;
+            æ–°é˜²ç¦¦ = é˜²ç¦¦;
         }
         isDefending1 = false;
     }
+
 }
+

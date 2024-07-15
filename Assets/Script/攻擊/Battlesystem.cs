@@ -599,7 +599,7 @@ public class Battlesystem : MonoBehaviour
             AttackIns1.gameObject.SetActive(false);
             while (PlayerBattleStation.anchoredPosition.x <= 25)
             {
-                PlayerBattleStation.anchoredPosition += new Vector2(playerPokemon.速度 * 2 * Time.deltaTime * 20f*5f, playerPokemon.速度 * 2 * Time.deltaTime * 7f*5f);
+                PlayerBattleStation.anchoredPosition += new Vector2(playerPokemon2.速度 * 2 * Time.deltaTime * 10f * 3f, playerPokemon2.速度 * 2 * Time.deltaTime * 10f * 3f);
                 Debug.Log("正在移動");
                 yield return new WaitForSeconds(0.01f);
                 Debug.Log("正在移動1");
@@ -607,7 +607,7 @@ public class Battlesystem : MonoBehaviour
             Special.SetActive(true);
             yield return new WaitForSeconds(1f);
             Special.SetActive(false);
-            PlayerBattleStation.anchoredPosition = new Vector2(-439, -171);
+            PlayerBattleStation.anchoredPosition = new Vector2(-108, -241);
 
         }
         else if (attacker == playerPokemon1 && player1 != null)
@@ -630,7 +630,7 @@ public class Battlesystem : MonoBehaviour
             AttackIns3.gameObject.SetActive(false);
             while (PlayerBattleStation2.anchoredPosition.x <= 60) 
             {
-                PlayerBattleStation2.anchoredPosition += new Vector2(playerPokemon2.速度 * 2 * Time.deltaTime * 10f*3f, playerPokemon2.速度 * 2 * Time.deltaTime * 10f*3f);
+                PlayerBattleStation2.anchoredPosition += new Vector2(playerPokemon.速度 * 2 * Time.deltaTime * 20f * 5f, playerPokemon.速度 * 2 * Time.deltaTime * 7f * 5f);
                 Debug.Log("正在移動");
                 yield return new WaitForSeconds(0.01f);
                 Debug.Log("正在移動1");
@@ -638,7 +638,7 @@ public class Battlesystem : MonoBehaviour
             Special.SetActive(true);
             yield return new WaitForSeconds(1f);
             Special.SetActive(false);
-            PlayerBattleStation2.anchoredPosition = new Vector2(-108, -241);
+            PlayerBattleStation2.anchoredPosition = new Vector2(-439, -171);
         }
 
         // 等待一段時間，模擬攻擊動作
@@ -696,7 +696,7 @@ public class Battlesystem : MonoBehaviour
         AttackIns1.gameObject.SetActive(false);
         while (PlayerBattleStation.anchoredPosition.x <= 25)
         {
-            PlayerBattleStation.anchoredPosition += new Vector2(playerPokemon.速度 * 2 * Time.deltaTime * 20f * 5f, playerPokemon.速度 * 2 * Time.deltaTime * 7f * 5f);
+            PlayerBattleStation.anchoredPosition += new Vector2(playerPokemon2.速度 * 2 * Time.deltaTime * 10f * 3f, playerPokemon2.速度 * 2 * Time.deltaTime * 10f * 3f);
             Debug.Log("正在移動");
             yield return new WaitForSeconds(0.01f);
             Debug.Log("正在移動1");
@@ -704,7 +704,7 @@ public class Battlesystem : MonoBehaviour
         Special.SetActive(true);
         yield return new WaitForSeconds(1f);
         Special.SetActive(false);
-        PlayerBattleStation.anchoredPosition = new Vector2(-439, -171);
+        PlayerBattleStation.anchoredPosition = new Vector2(-108, -241);
 
 
 
@@ -851,7 +851,7 @@ public class Battlesystem : MonoBehaviour
         else
         {
             // 如果低於 0，將其設置為 0
-            p1image.rectTransform.anchoredPosition = new Vector2(-300f, 0);
+            p1image.rectTransform.anchoredPosition = new Vector2(-275f, 0);
         }
         Object13.SetActive(false) ;
         state = BattleState.MoveTurn;
@@ -882,7 +882,7 @@ public class Battlesystem : MonoBehaviour
         else
         {
             // 如果低於 0，將其設置為 0
-            p3image.rectTransform.anchoredPosition = new Vector2(-300f, 0);
+            p3image.rectTransform.anchoredPosition = new Vector2(-275f, 0);
         }
         Object13.SetActive(false);
         state = BattleState.MoveTurn;
@@ -995,3 +995,4 @@ public class Battlesystem : MonoBehaviour
         }
     }
 }
+

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,9 +34,9 @@ public class Uibutton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A)) 
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            Debug.Log("«öÁäA¨S°İÃD");
+            Debug.Log("æŒ‰éµAæ²’å•é¡Œ");
 
             if (backpanle2.activeInHierarchy)
             {
@@ -51,5 +51,7 @@ public class Uibutton : MonoBehaviour
 
 
         }
+
     }
 }
+

@@ -57,3 +57,4 @@ public class Countdown1 : MonoBehaviour
         Time.timeScale = isPaused ? 0 : 1;
     }
 }
+

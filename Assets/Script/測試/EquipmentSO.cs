@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,8 +27,9 @@ public class EquipmentSO : ScriptableObject
             playerstats.agility += agility;
             playerstats.intelligence += intelligence;
             playerstats.weight += weight;
-            Debug.Log("¥[");
-            playerstats.UpdateEquipmentStats();
+          Debug.Log("åŠ ");
+
+        playerstats.UpdateEquipmentStats();
      
     }
 
@@ -42,7 +43,8 @@ public class EquipmentSO : ScriptableObject
         playerstats.agility -= agility;
         playerstats.intelligence -= intelligence;
         playerstats.weight -= weight;
-        Debug.Log("´î");
+        Debug.Log("æ¸›");
         playerstats.UpdateEquipmentStats();
     }
 }
+

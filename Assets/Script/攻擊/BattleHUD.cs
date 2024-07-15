@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,16 +23,17 @@ public class BattleHUD : MonoBehaviour
 
     public void SetHUD(Pokemon pm)
     {
-        int currentHealth = Mathf.Max(pm.¥Ø«e¦å¶q, 0);
+        int currentHealth = Mathf.Max(pm.ç›®å‰è¡€é‡, 0);
         hp1.text = currentHealth.ToString();
-        hpSlider.maxValue = pm.³Ì¤j¦å¶q;
+        hpSlider.maxValue = pm.æœ€å¤§è¡€é‡;
         hpSlider.value = currentHealth;
         if (sam1 != null)
         {
-            samSlider.maxValue = pm.³Ì¤j¨g®ğ­È;
-            samSlider.value = pm.¥Ø«e¨g®ğ­È;
-            sam1.text = pm.¥Ø«e¨g®ğ­È.ToString();
+            samSlider.maxValue = pm.æœ€å¤§ç‹‚æ°£å€¼;
+            samSlider.value = pm.ç›®å‰ç‹‚æ°£å€¼;
+            sam1.text = pm.ç›®å‰ç‹‚æ°£å€¼.ToString();
         }
+
 
     }
 
@@ -47,3 +48,4 @@ public class BattleHUD : MonoBehaviour
     }
 
 }
+

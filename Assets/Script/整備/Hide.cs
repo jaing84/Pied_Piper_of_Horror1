@@ -1,27 +1,29 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hide : MonoBehaviour
 {
-    public GameObject ¥ğ®§­±ªO;
-    public GameObject ±j¤Æ­±ªO;
-    public GameObject ¬ù·|­±ªO;
-    public GameObject ¸Ë³Æ­±ªO;
-    public GameObject ¾ã³ÆUI;
+    public GameObject ä¼‘æ¯é¢æ¿;
+    public GameObject å¼·åŒ–é¢æ¿;
+    public GameObject ç´„æœƒé¢æ¿;
+    public GameObject è£å‚™é¢æ¿;
+    public GameObject æ•´å‚™UI;
 
     void Start()
     {
-        
+
     }
 
-    public void ¸Ë³Æ ()
+    public void è£å‚™()
     {
-        ¸Ë³Æ­±ªO.gameObject.SetActive(true);
-        ¾ã³ÆUI.gameObject.SetActive(false);
+        è£å‚™é¢æ¿.gameObject.SetActive(true);
+        æ•´å‚™UI.gameObject.SetActive(false);
     }
     void Update()
     {
-        
+
     }
+
 }
+

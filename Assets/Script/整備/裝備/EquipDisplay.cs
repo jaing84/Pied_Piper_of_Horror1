@@ -19,4 +19,6 @@ public class EquipDisplay : MonoBehaviour
         equipName.text = equip.名稱; // 设置装备名称
         equipDescription.text = equip.敘述; // 设置装备描述
     }
+
 }
+

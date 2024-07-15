@@ -1,22 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Sprition : MonoBehaviour
 {
-    public Texture[] images; // Àx¦s¹Ï¤ùªº¼Æ²Õ
-    public Image imageComponent; // Image ²Õ¥ó
+    public Texture[] images; // å„²å­˜åœ–ç‰‡çš„æ•¸çµ„
+    public Image imageComponent; // Image çµ„ä»¶
 
-    private int currentIndex = 0; // ¥Ø«eÅã¥Üªº¹Ï¤ù¯Á¤Ş
+    private int currentIndex = 0; // ç›®å‰é¡¯ç¤ºçš„åœ–ç‰‡ç´¢å¼•
     private bool isAnimating = false;
 
     void Start()
     {
-        // ½T«O images ¼Æ²Õ¤£¬°ªÅ¨Ã¥B¥]§t¦Ü¤Ö¤@±i¹Ï¤ù
+        // ç¢ºä¿ images æ•¸çµ„ä¸ç‚ºç©ºä¸¦ä¸”åŒ…å«è‡³å°‘ä¸€å¼µåœ–ç‰‡
         if (images != null && images.Length > 0)
         {
-            // Åã¥Ü²Ä¤@±i¹Ï¤ù
+            // é¡¯ç¤ºç¬¬ä¸€å¼µåœ–ç‰‡
             imageComponent.sprite = Sprite.Create((Texture2D)images[0], new Rect(0, 0, images[0].width, images[0].height), new Vector2(0.5f, 0.5f));
         }
         else
@@ -24,7 +24,7 @@ public class Sprition : MonoBehaviour
             Debug.LogError("Images array is empty or null!");
         }
 
-        // ±Ò°Ê¹Ï¤ù¤Á´« Coroutine
+        // å•Ÿå‹•åœ–ç‰‡åˆ‡æ› Coroutine
         StartCoroutine(SwitchImages());
     }
     private void Update()
@@ -48,11 +48,12 @@ public class Sprition : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f); // µ¥«İ1¬í
+            yield return new WaitForSeconds(0.05f); // ç­‰å¾…1ç§’
 
-            // ¤Á´«¨ì¤U¤@±i¹Ï¤ù
+            // åˆ‡æ›åˆ°ä¸‹ä¸€å¼µåœ–ç‰‡
             currentIndex = (currentIndex + 1) % images.Length;
             imageComponent.sprite = Sprite.Create((Texture2D)images[currentIndex], new Rect(0, 0, images[currentIndex].width, images[currentIndex].height), new Vector2(0.5f, 0.5f));
         }
     }
 }
+

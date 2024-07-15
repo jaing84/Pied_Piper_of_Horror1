@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +6,10 @@ public class Teleport1 : MonoBehaviour
 {
     public string scenefrom;
     public string sceneToGO;
-    public GameObject ¥Ø¿ý;
-    public GameObject ¥\¯àPanel1;
-    public GameObject ¥\¯àPanel2;
-    public GameObject ¥\¯àPanel3;
+    public GameObject ç›®éŒ„;
+    public GameObject åŠŸèƒ½Panel1;
+    public GameObject åŠŸèƒ½Panel2;
+    public GameObject åŠŸèƒ½Panel3;
 
 
 
@@ -17,14 +17,15 @@ public class Teleport1 : MonoBehaviour
     public void TeleportToScene()
     {
         Time.timeScale = 1;
-        ¥\¯àPanel1.SetActive(false);
-        ¥\¯àPanel2.SetActive(false);
-        ¥\¯àPanel3.SetActive(false);
+        åŠŸèƒ½Panel1.SetActive(false);
+        åŠŸèƒ½Panel2.SetActive(false);
+        åŠŸèƒ½Panel3.SetActive(false);
 
         TransitionManager.Instance.Transition(scenefrom, sceneToGO);
-        if (¥Ø¿ý.activeSelf)
+        if (ç›®éŒ„.activeSelf)
         {
-            ¥Ø¿ý.SetActive(false);
+            ç›®éŒ„.SetActive(false);
         }
     }
 }
+

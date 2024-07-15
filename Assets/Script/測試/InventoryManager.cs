@@ -1,17 +1,17 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    // ­I¥]¡B¸Ë³Æ¡Bµæ³æ
+    // ?ï—º??î¼¾??î©‘Â€î¼¾???
     public GameObject InventoryMenu;
     public GameObject EquipmentMenu;
     public GameObject EscMenu;
     
    
-   //­I¥]®æ¤l¡Bª««~¸ê°T¡B¸Ë³Æ®æ¤l¡B¸Ë³Æ®æ¤l°}¦C
+   //?ï—º??æ¾†??î¼½ï§?î¼¾?é–®ï’¾Â€î¼¾??î©”î¹µæ‘®î“ŒÂ€î¼¾??î©”î¹µæ‘®î“’î¨‘??
     public ItemSlot[] itemSlot;
     public ItemSO[] itemSOs;
     public EquipmentSlot[] equipmentSlot;
@@ -39,7 +39,7 @@ public class InventoryManager : MonoBehaviour
             EquipmentMenu.SetActive(false);
 
         }
-        else if (InventoryMenu.activeSelf)   //activeSelf ®Ú¾Úª«¥ó¬O§_³B©ó¬¡°Êª¬ºA¶Ç¦^ true ©Î false ­È    
+        else if (InventoryMenu.activeSelf)   //activeSelf ?å¯??æ‹è¾£?è‡¬î’?îŸ î¡“ç˜£é¤ƒ??Â€?ï•î¾¦??true ??false ??   
         
         {
             Time.timeScale = 1;
@@ -63,7 +63,7 @@ public class InventoryManager : MonoBehaviour
 
         }
 
-        else if (EquipmentMenu.activeSelf)   //activeSelf ®Ú¾Úª«¥ó¬O§_³B©ó¬¡°Êª¬ºA¶Ç¦^ true ©Î false ­È    
+        else if (EquipmentMenu.activeSelf)   //activeSelf ?å¯??æ‹è¾£?è‡¬î’?îŸ î¡“ç˜£é¤ƒ??Â€?ï•î¾¦??true ??false ??   
 
         {
             Time.timeScale = 1;
@@ -80,7 +80,7 @@ public class InventoryManager : MonoBehaviour
 
     public void Esc() 
     {
-        if (EquipmentMenu.activeSelf || InventoryMenu.activeSelf)   //activeSelf ®Ú¾Úª«¥ó¬O§_³B©ó¬¡°Êª¬ºA¶Ç¦^ true ©Î false ­È    
+        if (EquipmentMenu.activeSelf || InventoryMenu.activeSelf)   //activeSelf ?å¯??æ‹è¾£?è‡¬î’?îŸ î¡“ç˜£é¤ƒ??Â€?ï•î¾¦??true ??false ??   
 
         {
             Time.timeScale = 1;
@@ -102,7 +102,7 @@ public class InventoryManager : MonoBehaviour
         }
 
     }
-    //¨Ï¥Îª««~ªº¤èªk
+    //é›¿è¼»îœ…?æ‹™??ï„“î¡ç˜œ?
     public bool UseItem(string itemName) 
     {
        for(int i = 0; i<itemSOs.Length; i++) 
@@ -117,7 +117,7 @@ public class InventoryManager : MonoBehaviour
         } 
         return false;    
     }
-    // ¼W¥[ª««~¨ì­I¥]©Î¸Ë³ÆÄæªº¤èªk  
+    // æ†“îµ¤??æ‹™??å•—??ï†°?é‹†î³‡?ç”ˆï„”??å¯?  
     public int AddItem(string itemName, int quantity, Sprite itemSprite,string itemDescription, ItemType itemType)
     {
         if(itemType == ItemType.consumable || itemType == ItemType.crafting || itemType == ItemType.collectible)
@@ -154,7 +154,7 @@ public class InventoryManager : MonoBehaviour
         }
         
     }
-    // ¨ú®ø¿ï¾Ü©Ò¦³­I¥]©M¸Ë³Æ®æ¤lªº¤èªk
+    // ?î¡½??è±¢??Â€?ï¦??ï†¯?é‹†î³‡??æ¾†??ï„“î¡ç˜œ?
     public void DeselectAllSlots()
     {
         for (int i = 0; i<itemSlot.Length; i++) 
@@ -198,3 +198,4 @@ public class InventoryManager : MonoBehaviour
         Application.Quit();
     }
 }
+
