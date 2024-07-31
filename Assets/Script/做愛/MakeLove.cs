@@ -21,7 +21,7 @@ public class MakeLove : MonoBehaviour
     private Imagespeed imagespeed;
     public int combo;
     public Text combotext;
-    public Image 判定圖2;
+    public Image 判定圖2; public Image 判定圖3;
     public Sprite prefectSprite;
     public Sprite niceSprite;
     public Sprite badSprite;
@@ -32,6 +32,8 @@ public class MakeLove : MonoBehaviour
     public Image Bar;
     public float health = 0;
     public float maxHealth = 100;
+    public float coinbutton = 0;
+    public float maxcoinbutton = 100;
     public float _lerpSpeed = 30;
     public GameObject RandomMove;
     public GameObject panel1;
@@ -44,13 +46,69 @@ public class MakeLove : MonoBehaviour
     // 搬家 imagespeed 程式
 
     public RectTransform image2;
+    public RectTransform image3; 
+    public RectTransform image4;
+    public RectTransform image5;
+    public RectTransform image6;
+    public RectTransform image7;
+    public RectTransform image8;
     public float speed;
+    public float speed1;
     public float numbleValue1 = 1.7f;
+    public float numbleValue2 = 1.7f;
+    public float numbleValue3 = 1.3f;
+    public float numbleValue4 = 1.7f;
+    public float numbleValue5 = 1.7f;
     public bool 判定上下左右1Called = false;
     TimerManager timerManager;
-  //  private bool gamePaused  = false;
+    //  private bool gamePaused  = false;
+    public bool 協成開始 = false;
+    public bool 預測值 = false;
+    //cg圖
+    public GameObject spicel1;
+    public GameObject spicel2;
+    public Text spicetext1;
+    public Text spicetext2;
+    public GameObject quimage1;
+    public GameObject quimage2;
+    public GameObject quimage3;
+    public bool opengame = false;
+    public bool opengame1 = false;
+    public bool opengame2 = false;
+    public bool opengame3 = false;
+    public GameObject CGGame;
+    public Sprite CG1;
+    public Sprite CG2;
+    public Sprite CG3;
+    public Sprite CG4;
+    public Sprite CG5;
+    public Sprite CG6;
+    public Sprite CG7;
+    public Sprite CG8;
+    public Sprite CG9;
+    public Sprite CG10;
+    public Sprite CG11;
+    public Sprite CG12;
+    public Sprite CG13;
+    public Sprite CG14;
+    public Sprite CG15;
+    public Sprite CG16;
+    public Sprite CG17;
+    public Sprite CG18;
+    public Sprite CG19;
+    public Sprite CG20;
+    public Sprite CG21;
+    public Sprite CG22;
+    public Sprite CG23;
+    private Image imageComponent;
+    public bool gmaebool = false;
+    //空白建coin
+    public GameObject imagespace1;
+    public Image imagespace;
+    public bool openimage2 = false;
     void Start()
     {
+        imageComponent = CGGame.GetComponent<Image>();
         timerManager = GameObject.FindObjectOfType<TimerManager>();
         if (timerManager == null)
         {
@@ -61,8 +119,126 @@ public class MakeLove : MonoBehaviour
         //  StartCoroutine(Countdown());
         panelRect = panel1.GetComponent<RectTransform>();
         timerManager = GameObject.Find("TimerManager").GetComponent<TimerManager>();
+        StartCoroutine(MyCoroutine());
     }
+    IEnumerator MyCoroutine()
+    {
+        Debug.Log("协程开始");
 
+        // 暂停协程1秒
+        yield return new WaitForSeconds(5);
+
+        spicel2.SetActive(true);
+        spicetext2.text = "你..你是什麼東西";
+        Debug.Log("展示CG2");
+        yield return new WaitForSeconds(2);
+        spicel2.SetActive(false);
+        spicel1.SetActive(true);
+        spicetext1.text ="哎呀，你醒啦少年，我沒想到你醒這麼快";
+        yield return new WaitForSeconds(2);
+        spicel1.SetActive(false);
+        imageComponent.sprite = CG2;
+        yield return new WaitForSeconds(0.5f);
+        imageComponent.sprite = CG1;
+        yield return new WaitForSeconds(0.5f);
+        imageComponent.sprite = CG2;
+        yield return new WaitForSeconds(0.5f);
+        imageComponent.sprite = CG1;
+        yield return new WaitForSeconds(0.5f);
+        imageComponent.sprite = CG2;
+        yield return new WaitForSeconds(0.5f);
+        imageComponent.sprite = CG3;
+        spicel1.SetActive(true);
+        spicetext1.text = " 噗咕";
+        yield return new WaitForSeconds(1f);
+        imageComponent.sprite = CG4;
+        spicetext1.text = "今天不太舒服，放你一馬";
+        yield return new WaitForSeconds(1f);
+        spicel1.SetActive(false);
+        quimage1.SetActive(true);
+        
+        opengame1 = true;
+        while (!協成開始)
+        {
+            yield return null; // 暫停到下一偵
+        }
+        yield return new WaitForSeconds(1f);
+        imageComponent.sprite = CG6;
+        spicel2.SetActive(true);
+        spicetext2.text = "別想逃";
+        yield return new WaitForSeconds(1f); 
+        spicel2.SetActive(false);
+        spicel1.SetActive(true);
+        spicetext1.text = "?";
+        yield return new WaitForSeconds(1f);
+       imageComponent.sprite = CG7;
+        spicetext1.text = "疑..疑!";
+        yield return new WaitForSeconds(1f);
+        spicel1.SetActive(false);
+        quimage2.SetActive(true);
+        opengame1 = false;
+        opengame2 = true;
+        while (health <= 50)
+        {
+            yield return null; // 暫停到下一偵
+            Debug.Log("測試遊戲");
+        }
+        yield return new WaitForSeconds(1f);
+        opengame2 = false;
+        quimage2.SetActive(false);
+        Debug.Log("準備開始遊戲");
+        yield return new WaitForSeconds(1f);
+        imageComponent.sprite = CG11;
+        spicel1.SetActive(true);
+        spicetext1.text = "你沒有招了嗎";
+        yield return new WaitForSeconds(1f);
+        spicel1.SetActive(false);
+        spicel2.SetActive(true);
+        spicetext2.text = "少瞧不起人";
+        yield return new WaitForSeconds(1f);
+        quimage3.SetActive(true);
+        spicel2.SetActive(false);
+        opengame3 = true;
+        while (gmaebool)
+        {
+            yield return null; // 暫停到下一偵
+        }
+        yield return new WaitForSeconds(3f);
+        spicel2.SetActive(true);
+        spicetext2.text = "胸部好軟";
+        yield return new WaitForSeconds(1f);
+        spicel2.SetActive(false);
+        Debug.Log("遊戲再次開始");
+        quimage2.SetActive(true);
+        opengame2 = true;
+        openimage2 = true;
+        while (health <= 100)
+        {
+            yield return null; // 暫停到下一偵
+            Debug.Log("測試遊戲");
+        }
+        opengame2 = false;
+        quimage2.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        imagespace1.SetActive(true);
+        openimage2 = false;
+        while (coinbutton < 100)
+        {
+            yield return null; // 暫停到下一偵
+            Debug.Log("測試遊戲");
+        }
+        yield return new WaitForSeconds(5f);
+        // RandomMove.SetActive(true);
+        // opengame = true;
+        // 暂停协程到下一帧
+        yield return null;
+        
+        Debug.Log("下一帧继续");
+
+        結();
+
+        Debug.Log("条件满足，协程结束");
+    }
     void StartCountdown()
     {
         if (!isCountingDown)
@@ -143,19 +319,109 @@ public class MakeLove : MonoBehaviour
 
         if (!timerManager.isGamePaused)
         {
-            到計時();
-            if (!判定上下左右1Called)
+         
+            if (opengame == true)
             {
-                判定上下左右1();
+                if (!判定上下左右1Called)
+                {
+                    判定上下左右1();
+                }
+                到計時();
+                UpdateHealthBar();
+                HandleInputModeA();
+                測試();
+                //  imagespeed = GameObject.Find("做愛UICanvas").GetComponent<Imagespeed>();
             }
 
-            UpdateHealthBar();
-            HandleInputModeA();
-            測試();
-            //  imagespeed = GameObject.Find("做愛UICanvas").GetComponent<Imagespeed>();
+            if (opengame1 == true)
+            {
+                if (!判定上下左右1Called)
+                {
+                    判定上下左右3();
+                }
+                else
+                {
+                    判定上下左右2();
+                }
+                測試1();
+            }
+            if (opengame3 == true)
+            {
+                if (!判定上下左右1Called)
+                {
+                    判定上下左右4();
+                }
+                else
+                {
+                    判定上下左右2();
+                }
+                測試1();
+            }
+            if (opengame2 == true)
+            {
+                if (!判定上下左右1Called)
+                {
+                    判定上下左右3();
+                }
+                else
+                {
+                    判定上下左右2();
+                }
+                UpdateHealthBar();
+                HandleInputModeB();
+                測試2();
+            }
+            if (Input.GetKeyDown(KeyCode.Space)) 
+            {
+                Debug.Log("空白測試");
+                Updatespace();
+            }
         }
     }
- 
+   void HandleInputModeB() 
+    {
+        bool directionCorrect1 = true;
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            directionCorrect1 = CheckDirection(top);
+           
+            if (directionCorrect1)
+            {
+                判定上下左右2(); // 如果方向按对，则进行圆圈的判定
+                CheckInput(top);
+            }
+            else
+            {
+                Debug.Log("測試1");
+                ResetCombo();
+              //  HandleBadSprite1();
+                StartCoroutine(HideJudgementImage(判定圖3));
+                CheckInput(top);
+
+            }
+
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            directionCorrect1 = CheckDirection(bottom);
+
+            if (directionCorrect1)
+            {
+                判定上下左右2(); // 如果方向按对，则进行圆圈的判定
+                CheckInput(bottom);
+            }
+            else
+            {
+                Debug.Log("測試2");
+                ResetCombo();
+              //  HandleBadSprite1();
+                StartCoroutine(HideJudgementImage(判定圖2));
+                CheckInput(bottom);
+
+            }
+
+        }
+    }
     void HandleInputModeA()
     {
         bool directionCorrect = true;
@@ -254,26 +520,40 @@ public class MakeLove : MonoBehaviour
             StartCoroutine(HideJudgementImage(判定圖2));
         }
     }
+    private void HandleBadSprite1()
+    {
+        判定圖3.sprite = badSprite;
+        badSpriteCount++;
+
+        if (badSpriteCount >= 5)
+        {
+            施主你早射.gameObject.SetActive(true);
+            TogglePause();
+        }
+        else
+        {
+            StartCoroutine(HideJudgementImage(判定圖3));
+        }
+    }
 
 
 
+    //  private IEnumerator Countdown()
+    //   {
+    //       while (timeRemaining > 0)
+    //      {
+    //          Debug.Log("Countdown: " + timeRemaining);
+    //          DisplayTime(timeRemaining);
+    //          yield return new WaitForSeconds(1f); // 等待一秒鐘
+    //          timeRemaining--; // 每過一秒 減1
+    //      }
 
-  //  private IEnumerator Countdown()
- //   {
- //       while (timeRemaining > 0)
-  //      {
-  //          Debug.Log("Countdown: " + timeRemaining);
-  //          DisplayTime(timeRemaining);
-  //          yield return new WaitForSeconds(1f); // 等待一秒鐘
-  //          timeRemaining--; // 每過一秒 減1
-  //      }
 
-
-  //      Debug.Log("倒计时结束！");
-  //      施主你早射.gameObject.SetActive(true);
-   //     TogglePause();
-   //     秒分數  +=  1;
-  //  }
+    //      Debug.Log("倒计时结束！");
+    //      施主你早射.gameObject.SetActive(true);
+    //     TogglePause();
+    //     秒分數  +=  1;
+    //  }
     void DisplayTime(float timeToDisplay)
     {
         // 更新UI
@@ -334,7 +614,7 @@ public class MakeLove : MonoBehaviour
             RedvceHealth();
             Debug.Log("錯誤");
         }
-        MoveRandomMove();
+       // MoveRandomMove();
         // 顯示下一張圖
         DisplayRandomImage();
     }
@@ -343,7 +623,133 @@ public class MakeLove : MonoBehaviour
     {
         return displayImage.sprite == correctDirection;
     }
+    private void 判定上下左右2() 
+    {
+        Debug.Log(numbleValue2);
 
+        if (numbleValue2 <= 1.07f && numbleValue2 >= 0.97f)
+        {
+            // Perfect 范围
+            if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow)))
+            {
+                // 按键为 Perfect
+                Debug.Log("Perfect!");
+                判定圖3.sprite = prefectSprite;
+                StartCoroutine(HideJudgementImage(判定圖3));
+                Debug.Log("測試5");
+                opengame1 = false;
+                quimage1.SetActive(false);
+             //   quimage2.SetActive(false);
+                協成開始 = true;
+            }
+            if ((Input.GetKey(KeyCode.UpArrow) && opengame3))
+            {
+                // 按键为 Perfect
+                Debug.Log("Perfect!");
+                判定圖3.sprite = prefectSprite;
+                StartCoroutine(HideJudgementImage(判定圖3));
+                Debug.Log("測試5");
+                opengame3 = false;
+                quimage3.SetActive(false);
+                //   quimage2.SetActive(false);
+                協成開始 = true;
+            }
+        }
+        else if (numbleValue2 <= 1.25f && numbleValue2 >= 0.75f)
+        {
+            // Nice 范围
+            if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow)))
+            {
+                // 按键为 Nice
+                Debug.Log("Nice!");
+                判定圖3.sprite = niceSprite;
+                StartCoroutine(HideJudgementImage(判定圖3));
+                Debug.Log("測試6");
+                opengame1 = false;
+                quimage1.SetActive(false);
+              //  quimage2.SetActive(false);
+                協成開始 = true;
+            }
+            if ((Input.GetKey(KeyCode.UpArrow) && opengame3))
+            {
+                // 按键为 Perfect
+                Debug.Log("Perfect!");
+                判定圖3.sprite = prefectSprite;
+                StartCoroutine(HideJudgementImage(判定圖3));
+                Debug.Log("測試5");
+                opengame3 = false;
+                quimage3.SetActive(false);
+                //   quimage2.SetActive(false);
+                協成開始 = true;
+            }
+        }
+        else
+        {
+            if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow)))
+            {
+                Debug.Log("Bad!");
+                判定圖3.sprite = badSprite;
+                StartCoroutine(HideJudgementImage(判定圖3));
+                Debug.Log("測試7");
+                opengame1 = false;
+                quimage1.SetActive(false);
+             //   quimage2.SetActive(false);
+                協成開始 = true;
+            }
+            if ((Input.GetKey(KeyCode.UpArrow) && opengame3))
+            {
+                // 按键为 Perfect
+                Debug.Log("Perfect!");
+                判定圖3.sprite = prefectSprite;
+                StartCoroutine(HideJudgementImage(判定圖3));
+                Debug.Log("測試5");
+                opengame3 = false;
+                quimage3.SetActive(false);
+                //   quimage2.SetActive(false);
+                協成開始 = true;
+            }
+        }
+
+    }
+    private void 判定上下左右3()
+    {
+
+        判定上下左右1Called = true;
+        if (numbleValue2 < 0.7499f && 判定上下左右1Called)
+        {
+            Debug.Log(numbleValue2);
+            Debug.Log("Bad! (Out of Range)");
+            ResetCombo();
+            判定圖3.sprite = badSprite;
+            StartCoroutine(HideJudgementImage(判定圖3));
+            Debug.Log("測試8");
+            opengame1 = false;
+            quimage1.SetActive(false);
+
+            // quimage2.SetActive(false);
+            協成開始 = true;
+        }
+        判定上下左右1Called = false;
+    }
+    private void 判定上下左右4()
+    {
+
+        判定上下左右1Called = true;
+        if (numbleValue5 < 0.7499f && 判定上下左右1Called)
+        {
+            Debug.Log(numbleValue2);
+            Debug.Log("Bad! (Out of Range)");
+            ResetCombo();
+            判定圖3.sprite = badSprite;
+            StartCoroutine(HideJudgementImage(判定圖3));
+
+            opengame3 = false;
+            quimage3.SetActive(false);
+            // quimage2.SetActive(false);
+            協成開始 = true;
+        }
+        判定上下左右1Called = false;
+    }
 
     private void 判定上下左右()
     {
@@ -406,7 +812,7 @@ public class MakeLove : MonoBehaviour
             判定圖2.sprite = badSprite;
             StartCoroutine(HideJudgementImage(判定圖2));
             Debug.Log("測試8");
-            MoveRandomMove();
+          //  MoveRandomMove();
             // 顯示下一張圖
             DisplayRandomImage();
             RedvceHealth();
@@ -445,18 +851,28 @@ public class MakeLove : MonoBehaviour
         float targetFillAmount = health / maxHealth;
         Bar.fillAmount = Mathf.Lerp(Bar.fillAmount, targetFillAmount, _lerpSpeed * Time.deltaTime);
 
-        if(targetFillAmount==1 && Bar.fillAmount > 0.9) 
-        {
-            Bar.fillAmount = 1;
-            結();
-        }
+      //  if(targetFillAmount==1 && Bar.fillAmount > 0.9) 
+      //  {
+      //      Bar.fillAmount = 1;
+      //      結();
+       // }
 
         // 測試數字
         數字 = Bar.fillAmount;
     }
+     void Updatespace() 
+    {
+        Addcoin();
+        float targetFillAmount = coinbutton / maxcoinbutton;
+        imagespace.fillAmount = Mathf.Lerp(imagespace.fillAmount, targetFillAmount, _lerpSpeed * Time.deltaTime);
+    } 
+    private void Addcoin()
+    {
+        coinbutton += 10;  
+    }
     public void AddHealth()
     {
-        health += 15;
+        health += 10;
     }
     public void niceHealth() 
     {
@@ -473,11 +889,10 @@ public class MakeLove : MonoBehaviour
     }
     public void 結() 
     {
-        if (health == maxHealth)
-        {
+     
             TogglePause();
             結算.SetActive(true);
-        }
+        
     }
     void TogglePause()
     {
@@ -504,23 +919,23 @@ public class MakeLove : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
     }
-    void MoveRandomMove()
-    {
-        float panelLeft = panelRect.localPosition.x - panelRect.rect.width / 2;
-        float panelRight = panelRect.localPosition.x + panelRect.rect.width / 2;
-        float panelBottom = panelRect.localPosition.y - panelRect.rect.height / 2;
-        float panelTop = panelRect.localPosition.y + panelRect.rect.height / 2;
+   // void MoveRandomMove()
+   // {
+    //    float panelLeft = panelRect.localPosition.x - panelRect.rect.width / 2;
+    //    float panelRight = panelRect.localPosition.x + panelRect.rect.width / 2;
+    //    float panelBottom = panelRect.localPosition.y - panelRect.rect.height / 2;
+    //    float panelTop = panelRect.localPosition.y + panelRect.rect.height / 2;
 
         // 生成随机位置
-        float randomX = Random.Range(panelLeft, panelRight);
-        float randomY = Random.Range(panelBottom, panelTop);
+   //     float randomX = Random.Range(panelLeft, panelRight);
+  //      float randomY = Random.Range(panelBottom, panelTop);
 
         // 限制在指定范围内
-        float clampedX = Mathf.Clamp(randomX, panelLeft, panelRight);
-        float clampedY = Mathf.Clamp(randomY, panelBottom, panelTop);
+  //      float clampedX = Mathf.Clamp(randomX, panelLeft, panelRight);
+   //     float clampedY = Mathf.Clamp(randomY, panelBottom, panelTop);
 
-        RandomMove.transform.localPosition = new Vector3(clampedX, clampedY, RandomMove.transform.localPosition.z);
-    }
+   //     RandomMove.transform.localPosition = new Vector3(clampedX, clampedY, RandomMove.transform.localPosition.z);
+  //  }
     public void 失主早射隱藏()
     {
         TogglePause();
@@ -552,6 +967,127 @@ public class MakeLove : MonoBehaviour
         Shrink();
 
     }
+    public void 測試1()
+    {
+        Shrink1();
+
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+            {
+                quimage1.SetActive(false);
+               numbleValue2 = 1.7f;
+         
+            }
+            else
+            {
+
+                if (numbleValue2 >= 0.75)
+                {
+                    numbleValue2 -= 0.1f * Time.deltaTime * speed1;
+                }
+                else
+                {
+                  quimage1.SetActive(false);
+                  numbleValue2 = 1.7f;
+                }
+            }
+        if (opengame3) 
+        {
+            Shrink3();
+            if (Input.GetKey(KeyCode.UpArrow) )
+            {
+                quimage3.SetActive(false);
+                imageComponent.sprite = CG12;
+                numbleValue5 = 1.7f;
+                gmaebool = true;
+            }
+            else
+            {
+                if (numbleValue5 >= 0.75)
+                {
+                    numbleValue5 -= 0.1f * Time.deltaTime * speed1;
+                
+                }
+                else
+                {
+                
+                    quimage3.SetActive(false);
+                    numbleValue5 = 1.7f;
+                }
+            }
+        }
+    }
+    public void 測試2()
+    {
+        Shrink2();
+
+
+        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow))
+        {
+            
+            numbleValue2 = 1.7f;
+        }
+        else
+        {
+
+            if (numbleValue2 >= 0.75)
+            {
+                numbleValue2 -= 0.1f * Time.deltaTime * speed1;
+            }
+            else
+            {
+                numbleValue2 = 1.7f;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow) && openimage2) 
+        {
+            imageComponent.sprite = CG15;
+            AddHealth();
+
+        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            imageComponent.sprite = CG10;
+            AddHealth();
+            numbleValue3 = 1.7f;
+        }
+        else
+        {
+
+            if (numbleValue3 >= 0.75)
+            {
+                numbleValue3 -= 0.1f * Time.deltaTime * speed1;
+            }
+            else
+            {
+                numbleValue3 = 1.7f;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow) && openimage2) 
+        {
+            imageComponent.sprite = CG14;
+            AddHealth();
+            numbleValue3 = 1.7f;
+
+        }
+        else if ( Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            imageComponent.sprite = CG9;
+            AddHealth();
+            numbleValue4 = 1.7f;
+        }
+        else
+        {
+
+            if (numbleValue4 >= 0.75)
+            {
+                numbleValue4 -= 0.1f * Time.deltaTime * speed1;
+            }
+            else
+            {
+                numbleValue4 = 1.7f;
+            }
+        }
+    }
     public void Shrink()
     {
 
@@ -559,6 +1095,35 @@ public class MakeLove : MonoBehaviour
         Vector3 newScale2 = image2.localScale;
 
     }
+    public void Shrink1()
+    {
 
+        image3.localScale = new Vector3(numbleValue2, numbleValue2, 1f);
+        Vector3 newScale3 = image3.localScale;
+        image4.localScale = new Vector3(numbleValue2, numbleValue2, 1f);
+        Vector3 newScale4 = image4.localScale;
+       
+
+    }
+    public void Shrink2()
+    {
+
+        image5.localScale = new Vector3(numbleValue3, numbleValue3, 1f);
+        Vector3 newScale3 = image5.localScale;
+        image6.localScale = new Vector3(numbleValue4, numbleValue4, 1f);
+        Vector3 newScale4 = image6.localScale;
+
+
+    }
+    public void Shrink3()
+    {
+
+        image7.localScale = new Vector3(numbleValue5, numbleValue5, 1f);
+        Vector3 newScale3 = image7.localScale;
+        image8.localScale = new Vector3(numbleValue5, numbleValue5, 1f);
+        Vector3 newScale4 = image8.localScale;
+
+
+    }
 }
 
