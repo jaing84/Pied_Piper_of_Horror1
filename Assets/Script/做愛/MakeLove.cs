@@ -47,12 +47,16 @@ public class MakeLove : MonoBehaviour
     // 搬家 imagespeed 程式
 
     public RectTransform image2;
+    //1
     public RectTransform image3; 
     public RectTransform image4;
+    //2
     public RectTransform image5;
     public RectTransform image6;
+    //3
     public RectTransform image7;
     public RectTransform image8;
+    //4
     public RectTransform image9;
     public RectTransform image10;
     public float speed;
@@ -182,7 +186,7 @@ public class MakeLove : MonoBehaviour
         {
             yield return null; // 暫停到下一偵
         }
-        yield return new WaitForSeconds(1f);
+        
         imageComponent.sprite = CG6;
         spicel2.SetActive(true);
         spicetext2.text = "別想逃";
@@ -235,20 +239,25 @@ public class MakeLove : MonoBehaviour
         while (health <= 100)
         {
             yield return null; // 暫停到下一偵
-            Debug.Log("測試遊戲");
+           // Debug.Log("測試遊戲");
         }
         opengame2 = false;
         quimage2.SetActive(false);
-        yield return new WaitForSeconds(1f);
-        imagespace1.SetActive(true);
+        yield return new WaitForSeconds(1f);  
         openimage2 = false;
+        opengame4 = true;
         quimage4.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        imageComponent.sprite = CG20;
+
+        while (opengame4)
+        {
+            yield return null; 
+        }
+
+        imagespace1.SetActive(true);
         while (coinbutton < 100)
         {
             yield return null; // 暫停到下一偵
-            Debug.Log("測試遊戲");
+           // Debug.Log("測試遊戲");
         }
         imageComponent.sprite = CG23;
         yield return new WaitForSeconds(1f);
@@ -397,9 +406,10 @@ public class MakeLove : MonoBehaviour
             }
             if (opengame4 == true)
             {
+                Debug.Log("四階段");
                 if (!判定上下左右1Called)
                 {
-                    判定上下左右4();
+                    判定上下左右5();
                 }
                 else
                 {
@@ -692,7 +702,7 @@ public class MakeLove : MonoBehaviour
         if (numbleValue2 <= 1.07f && numbleValue2 >= 0.97f)
         {
             // Perfect 范围
-            if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow)))
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)&& quimage1)
             {
                 // 按键为 Perfect
                 Debug.Log("Perfect!");
@@ -732,7 +742,7 @@ public class MakeLove : MonoBehaviour
         else if (numbleValue2 <= 1.25f && numbleValue2 >= 0.75f)
         {
             // Nice 范围
-            if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow)))
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow) && quimage1)
             {
                 // 按键为 Nice
                 Debug.Log("Nice!");
@@ -771,7 +781,7 @@ public class MakeLove : MonoBehaviour
         }
         else
         {
-            if ((Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow)))
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow) && quimage1)
             {
                 Debug.Log("Bad!");
                 判定圖3.sprite = badSprite;
@@ -828,10 +838,30 @@ public class MakeLove : MonoBehaviour
             ResetCombo();
             判定圖3.sprite = badSprite;
             StartCoroutine(HideJudgementImage(判定圖3));
-            opengame4 = false;
-            quimage4.SetActive(false);
+            
             opengame3 = false;
             quimage3.SetActive(false);
+            // quimage2.SetActive(false);
+            協成開始 = true;
+        }
+        
+        判定上下左右1Called = false;
+    }
+    private void 判定上下左右5()
+    {
+
+        判定上下左右1Called = true;
+        
+        if (numbleValue6 < 0.7499f && 判定上下左右1Called)
+        {
+            Debug.Log(numbleValue6);
+            Debug.Log("Bad! (Out of Range)");
+            ResetCombo();
+            判定圖3.sprite = badSprite;
+            StartCoroutine(HideJudgementImage(判定圖3));
+            opengame4 = false;
+            quimage4.SetActive(false);
+
             // quimage2.SetActive(false);
             協成開始 = true;
         }
@@ -936,16 +966,16 @@ public class MakeLove : MonoBehaviour
     {
 
         float targetFillAmount = health / maxHealth;
-        Bar.fillAmount = Mathf.Lerp(Bar.fillAmount, targetFillAmount, _lerpSpeed * Time.deltaTime);
-
-      //  if(targetFillAmount==1 && Bar.fillAmount > 0.9) 
-      //  {
-      //      Bar.fillAmount = 1;
-      //      結();
+        //   Bar.fillAmount = Mathf.Lerp(Bar.fillAmount, targetFillAmount, _lerpSpeed * Time.deltaTime);
+        Bar.fillAmount = targetFillAmount;
+       //  if(targetFillAmount==1 && Bar.fillAmount > 0.9) 
+       //  {
+       //      Bar.fillAmount = 1;
+       //      結();
        // }
 
         // 測試數字
-        數字 = Bar.fillAmount;
+       數字 = Bar.fillAmount;
     }
      void Updatespace() 
     {
@@ -1058,9 +1088,10 @@ public class MakeLove : MonoBehaviour
     {
         Shrink1();
 
-            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow)&& opengame1)
             {
                 quimage1.SetActive(false);
+               協成開始 = true;
                numbleValue2 = 1.7f;
          
             }
@@ -1104,26 +1135,28 @@ public class MakeLove : MonoBehaviour
         }
         if (opengame4)
         {
+            Debug.Log("測試用2");
             Shrink4();
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 quimage4.SetActive(false);
-                imageComponent.sprite = CG12;
-                numbleValue5 = 1.7f;
+                numbleValue6 = 1.7f;
                 gmaebool = true;
+                imageComponent.sprite = CG20;
+                opengame4 = false;
             }
             else
             {
-                if (numbleValue5 >= 0.75)
+                if (numbleValue6 >= 0.75)
                 {
-                    numbleValue5 -= 0.1f * Time.deltaTime * speed1;
+                    numbleValue6 -= 0.1f * Time.deltaTime * speed1;
 
                 }
                 else
                 {
 
-                    quimage4.SetActive(false);
-                    numbleValue5 = 1.7f;
+                   // quimage4.SetActive(false);
+                    numbleValue6 = 1.7f;
                 }
             }
         }
@@ -1133,7 +1166,7 @@ public class MakeLove : MonoBehaviour
         Shrink2();
 
 
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
         {
             
             numbleValue2 = 1.7f;
@@ -1150,9 +1183,11 @@ public class MakeLove : MonoBehaviour
                 numbleValue2 = 1.7f;
             }
         }
+
         if (Input.GetKeyDown(KeyCode.UpArrow) && openimage2) 
         {
             imageComponent.sprite = CG15;
+            numbleValue3 = 1.7f;
             AddHealth();
 
         }
@@ -1178,7 +1213,7 @@ public class MakeLove : MonoBehaviour
         {
             imageComponent.sprite = CG14;
             AddHealth();
-            numbleValue3 = 1.7f;
+            numbleValue4 = 1.7f;
 
         }
         else if ( Input.GetKeyDown(KeyCode.DownArrow))
@@ -1238,7 +1273,7 @@ public class MakeLove : MonoBehaviour
     }
     public void Shrink4()
     {
-
+        Debug.Log("測試用1");
         image9.localScale = new Vector3(numbleValue6, numbleValue6, 1f);
         Vector3 newScale3 = image9.localScale;
         image10.localScale = new Vector3(numbleValue6, numbleValue6, 1f);
