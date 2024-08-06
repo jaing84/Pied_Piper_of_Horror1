@@ -114,6 +114,7 @@ public class MakeLove : MonoBehaviour
     public bool gmaebool = false;
     //空白建coin
     public GameObject imagespace1;
+
     public Image imagespace;
     public bool openimage2 = false;
     //結算
@@ -129,7 +130,10 @@ public class MakeLove : MonoBehaviour
     public Text qua1;
     public TMP_Text Settlementnumber3;
     public GameObject Exitbutton;
-
+    //判定圖
+    public GameObject opencoin;
+    public GameObject opencoin1;
+    public bool  hold1= false;
     void Start()
     {
         imageComponent = CGGame.GetComponent<Image>();
@@ -205,7 +209,7 @@ public class MakeLove : MonoBehaviour
         while (health <= 50)
         {
             yield return null; // 暫停到下一偵
-            Debug.Log("測試遊戲");
+            
         }
         yield return new WaitForSeconds(1f);
         opengame2 = false;
@@ -252,14 +256,16 @@ public class MakeLove : MonoBehaviour
         {
             yield return null; 
         }
-
+        hold1 = true;
         imagespace1.SetActive(true);
         while (coinbutton < 100)
         {
             yield return null; // 暫停到下一偵
            // Debug.Log("測試遊戲");
         }
+        hold1 = false;
         imageComponent.sprite = CG23;
+        
         yield return new WaitForSeconds(1f);
         paneldown.SetActive(true);
         yield return new WaitForSeconds(0.5f);
@@ -431,7 +437,7 @@ public class MakeLove : MonoBehaviour
                 HandleInputModeB();
                 測試2();
             }
-            if (Input.GetKeyDown(KeyCode.Space)) 
+            if (Input.GetKeyDown(KeyCode.Space)&& imagespace1.activeSelf&& hold1) 
             {
                 Debug.Log("空白測試");
                 Updatespace();
@@ -825,6 +831,25 @@ public class MakeLove : MonoBehaviour
             // quimage2.SetActive(false);
             協成開始 = true;
         }
+        if(numbleValue3 < 0.7499f && 判定上下左右1Called) 
+        {
+            ResetCombo();
+            判定圖3.sprite = badSprite;
+            StartCoroutine(HideJudgementImage(判定圖3));
+            StartCoroutine(HideAndShowOpencoin());
+            numbleValue3 = 1.7f;
+            Debug.Log("5");
+        }
+        if (numbleValue4 < 0.7499f && 判定上下左右1Called)
+        {
+            ResetCombo();
+            判定圖3.sprite = badSprite;
+            StartCoroutine(HideJudgementImage(判定圖3));
+            StartCoroutine(HideAndShowOpencoin1());
+            numbleValue4 = 1.7f;
+            Debug.Log("6");
+
+        }
         判定上下左右1Called = false;
     }
     private void 判定上下左右4()
@@ -1184,56 +1209,80 @@ public class MakeLove : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && openimage2) 
+        if (Input.GetKeyDown(KeyCode.UpArrow) && openimage2 && opencoin.activeSelf) 
         {
             imageComponent.sprite = CG15;
             numbleValue3 = 1.7f;
             AddHealth();
-
+            StartCoroutine(HideAndShowOpencoin());
+            Debug.Log("1");
+            
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.UpArrow)&& opencoin.activeSelf)
         {
             imageComponent.sprite = CG10;
             AddHealth();
             numbleValue3 = 1.7f;
+            StartCoroutine(HideAndShowOpencoin());
+            Debug.Log("2");
         }
         else
         {
-
-            if (numbleValue3 >= 0.75)
+            if (opencoin.activeSelf)
             {
-                numbleValue3 -= 0.1f * Time.deltaTime * speed1;
-            }
-            else
-            {
-                numbleValue3 = 1.7f;
+                if (numbleValue3 >= 0.75)
+                {
+                    numbleValue3 -= 0.1f * Time.deltaTime * speed1;
+                }
+                else
+                {
+                    numbleValue3 = 1.7f;
+                }
             }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && openimage2) 
+        if (Input.GetKeyDown(KeyCode.DownArrow) && openimage2 && opencoin1.activeSelf) 
         {
             imageComponent.sprite = CG14;
             AddHealth();
             numbleValue4 = 1.7f;
+            StartCoroutine(HideAndShowOpencoin1());
+            Debug.Log("3");
 
         }
-        else if ( Input.GetKeyDown(KeyCode.DownArrow))
+        else if ( Input.GetKeyDown(KeyCode.DownArrow) && opencoin1.activeSelf)
         {
             imageComponent.sprite = CG9;
             AddHealth();
             numbleValue4 = 1.7f;
+            StartCoroutine(HideAndShowOpencoin1());
+            Debug.Log("4");
         }
         else
         {
-
-            if (numbleValue4 >= 0.75)
+            if (opencoin1.activeSelf)
             {
-                numbleValue4 -= 0.1f * Time.deltaTime * speed1;
-            }
-            else
-            {
-                numbleValue4 = 1.7f;
+                if (numbleValue4 >= 0.75)
+                {
+                    numbleValue4 -= 0.1f * Time.deltaTime * speed1;
+                }
+                else
+                {
+                    numbleValue4 = 1.7f;
+                }
             }
         }
+    }
+    IEnumerator HideAndShowOpencoin()
+    {
+        opencoin.SetActive(false);     
+        yield return new WaitForSeconds(2); 
+        opencoin1.SetActive(true);       
+    }
+    IEnumerator HideAndShowOpencoin1()
+    {
+        opencoin1.SetActive(false);      
+        yield return new WaitForSeconds(2); 
+        opencoin.SetActive(true);       
     }
     public void Shrink()
     {
