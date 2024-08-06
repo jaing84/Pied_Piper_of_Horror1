@@ -138,6 +138,8 @@ public class MakeLove : MonoBehaviour
     public bool hold3= false;
     private bool isSwitchingImages = false;
     private bool isSwitchingImages1 = true;
+    public GameObject Space1;
+
     void Start()
     {
         imageComponent = CGGame.GetComponent<Image>();
@@ -264,6 +266,9 @@ public class MakeLove : MonoBehaviour
         {
             yield return null; 
         }
+        Space1.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        Space1.SetActive(false);
         hold1 = true;
         imagespace1.SetActive(true);
         while (coinbutton < 100)
