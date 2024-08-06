@@ -134,6 +134,10 @@ public class MakeLove : MonoBehaviour
     public GameObject opencoin;
     public GameObject opencoin1;
     public bool  hold1= false;
+    public bool hold2= false;
+    public bool hold3= false;
+    private bool isSwitchingImages = false;
+    private bool isSwitchingImages1 = true;
     void Start()
     {
         imageComponent = CGGame.GetComponent<Image>();
@@ -206,12 +210,14 @@ public class MakeLove : MonoBehaviour
         quimage2.SetActive(true);
         opengame1 = false;
         opengame2 = true;
+        hold2 = true;
         while (health <= 50)
         {
             yield return null; // 暫停到下一偵
             
         }
         yield return new WaitForSeconds(1f);
+        hold2 = false;
         opengame2 = false;
         quimage2.SetActive(false);
         Debug.Log("準備開始遊戲");
@@ -240,11 +246,13 @@ public class MakeLove : MonoBehaviour
         quimage2.SetActive(true);
         opengame2 = true;
         openimage2 = true;
+        hold3 = true;
         while (health <= 100)
         {
             yield return null; // 暫停到下一偵
            // Debug.Log("測試遊戲");
         }
+        hold3 = false;
         opengame2 = false;
         quimage2.SetActive(false);
         yield return new WaitForSeconds(1f);  
@@ -837,6 +845,7 @@ public class MakeLove : MonoBehaviour
             判定圖3.sprite = badSprite;
             StartCoroutine(HideJudgementImage(判定圖3));
             StartCoroutine(HideAndShowOpencoin());
+            isSwitchingImages1 = false;
             numbleValue3 = 1.7f;
             Debug.Log("5");
         }
@@ -846,6 +855,7 @@ public class MakeLove : MonoBehaviour
             判定圖3.sprite = badSprite;
             StartCoroutine(HideJudgementImage(判定圖3));
             StartCoroutine(HideAndShowOpencoin1());
+            isSwitchingImages1 = false;
             numbleValue4 = 1.7f;
             Debug.Log("6");
 
@@ -1209,21 +1219,33 @@ public class MakeLove : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && openimage2 && opencoin.activeSelf) 
+        if (Input.GetKeyDown(KeyCode.UpArrow) && openimage2 && opencoin.activeSelf&&hold3) 
         {
-            imageComponent.sprite = CG15;
+         //   imageComponent.sprite = CG15;
             numbleValue3 = 1.7f;
             AddHealth();
+            isSwitchingImages1 = true;
             StartCoroutine(HideAndShowOpencoin());
+            if (!isSwitchingImages1) // Check if the SwitchImages1 coroutine is already running
+            {
+                StartCoroutine(SwitchImages1());
+                isSwitchingImages1 = true;
+            }
             Debug.Log("1");
             
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow)&& opencoin.activeSelf)
+        else if (Input.GetKeyDown(KeyCode.UpArrow)&& opencoin.activeSelf && hold2)
         {
-            imageComponent.sprite = CG10;
+          //  imageComponent.sprite = CG10;
             AddHealth();
             numbleValue3 = 1.7f;
+            isSwitchingImages1 = true;
             StartCoroutine(HideAndShowOpencoin());
+            if (!isSwitchingImages) // Check if the SwitchImages coroutine is already running
+            {
+                StartCoroutine(SwitchImages());
+                isSwitchingImages = true;
+            }
             Debug.Log("2");
         }
         else
@@ -1240,21 +1262,33 @@ public class MakeLove : MonoBehaviour
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow) && openimage2 && opencoin1.activeSelf) 
+        if (Input.GetKeyDown(KeyCode.DownArrow) && openimage2 && opencoin1.activeSelf && hold3) 
         {
-            imageComponent.sprite = CG14;
+          //  imageComponent.sprite = CG14;
             AddHealth();
             numbleValue4 = 1.7f;
+            isSwitchingImages1 = true;
             StartCoroutine(HideAndShowOpencoin1());
+            if (!isSwitchingImages) // Check if the SwitchImages1 coroutine is already running
+            {
+                StartCoroutine(SwitchImages1());
+                isSwitchingImages = true;
+            }
             Debug.Log("3");
 
         }
-        else if ( Input.GetKeyDown(KeyCode.DownArrow) && opencoin1.activeSelf)
+        else if ( Input.GetKeyDown(KeyCode.DownArrow) && opencoin1.activeSelf && hold2)
         {
-            imageComponent.sprite = CG9;
+          //  imageComponent.sprite = CG9;
             AddHealth();
             numbleValue4 = 1.7f;
+            isSwitchingImages1= true;
             StartCoroutine(HideAndShowOpencoin1());
+            if (!isSwitchingImages) // Check if the SwitchImages coroutine is already running
+            {
+                StartCoroutine(SwitchImages());
+                isSwitchingImages = true;
+            }
             Debug.Log("4");
         }
         else
@@ -1328,6 +1362,34 @@ public class MakeLove : MonoBehaviour
         image10.localScale = new Vector3(numbleValue6, numbleValue6, 1f);
         Vector3 newScale4 = image10.localScale;
 
+    }
+    private IEnumerator SwitchImages()
+    {
+        while (hold2&& isSwitchingImages1)
+        {
+            // 设置为 CG15
+            imageComponent.sprite = CG9;
+            yield return new WaitForSeconds(0.5f); // 等待 0.5 秒
+            Debug.Log("8");
+            // 设置为 CG16
+            imageComponent.sprite = CG10;
+            yield return new WaitForSeconds(0.5f); // 等待 0.5 秒
+        }
+        isSwitchingImages = false;
+    }
+    private IEnumerator SwitchImages1()
+    {
+        while (hold3&&isSwitchingImages1)
+        {
+            // 设置为 CG15
+            imageComponent.sprite = CG14;
+            yield return new WaitForSeconds(0.5f); // 等待 0.5 秒
+            Debug.Log("9");
+            // 设置为 CG16 
+            imageComponent.sprite = CG15;
+            yield return new WaitForSeconds(0.5f); // 等待 0.5 秒
+        }
+        isSwitchingImages = false;
     }
 }
 
