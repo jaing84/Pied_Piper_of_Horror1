@@ -23,8 +23,19 @@ namespace TESTING
             "文本文本文本4",
             "文本文本文本5"
         };
-            
-        
+        string[] texts = new string[]
+       {
+            "晚上好，這位客人，有做個好夢嗎?!",
+            "今晚有客人您的大駕光臨，小店蓬蓽生輝、好生感激……",
+            "按Esc會出現目錄",
+            "只要按右鍵多出來的頁面會消失",
+            "文本文本文本文本文本文本",
+            "請前往戰鬥場景"
+       };
+
+        int currentTextIndex = 0;
+        public GameObject buttonline;
+
         void Start()
         {
             ds = DialogueSystem.instance;
@@ -42,11 +53,14 @@ namespace TESTING
                 architect.Stop();
             }
             if (Input.GetKeyDown(KeyCode.S))
+            {
                 architect.Stop();
-            
+              
+            }
            
-            string longLine = "這是一條很長的線，毫無意義，因為我只是在裡面塞滿東西，因為，你知道，東西很好，對吧？我喜歡東西，你也喜歡東西，我們都喜歡東西，所以給我操吧!";
-            if (Input.GetKeyDown(KeyCode.Space))
+
+            //  string longLine = "這是一條很長的線，毫無意義，因為我只是在裡面塞滿東西，因為，你知道，東西很好，對吧？我喜歡東西，你也喜歡東西，我們都喜歡東西，所以給我操吧!";
+            if (Input.GetKeyDown(KeyCode.Space) )
             {
                 
                 if(architect.isBuilding)
@@ -57,14 +71,26 @@ namespace TESTING
                         architect.ForceComplete();
 
                 }
-                else
-                    architect.Build(longLine);
-                //architect.Build(lines[Random.Range(0, lines.Length)]);
+                else if (currentTextIndex < texts.Length)
+                {
+                    architect.Build(texts[currentTextIndex]);
+
+                    currentTextIndex++;
+
+                    if (currentTextIndex >= texts.Length)
+                    {
+                        //currentTextIndex = 0;
+                        buttonline.SetActive(true);
+                    }
+                    //   architect.Build(longLine);
+                    //architect.Build(lines[Random.Range(0, lines.Length)]);
+                }
             }
             else if(Input.GetKeyDown(KeyCode.A))
             {
-                architect.Append(longLine);
-               // architect.Append(lines[Random.Range(0, lines.Length)]);
+                architect.Append(texts[currentTextIndex]);
+                // architect.Append(longLine);
+                // architect.Append(lines[Random.Range(0, lines.Length)]);
             }
         }
         public void TextSpeed()
