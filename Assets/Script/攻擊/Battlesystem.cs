@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public enum BattleState
 {
@@ -90,7 +91,9 @@ public class Battlesystem : MonoBehaviour
     public bool 目標已記錄1 = false;
     public bool 目標已記錄2 = false;
     public PlayerValues playerValues;
-
+    //文字變動
+    public TMP_Text HP1;
+    public TMP_Text SAM1;
     void Start()
     {
         state = BattleState.Start;
@@ -575,6 +578,8 @@ public class Battlesystem : MonoBehaviour
     }
     private void 更新面板()
     {
+        HP1.text = ("HP:  "+ enemyPokemon.目前血量);
+        SAM1.text = ("SAM:  " + enemyPokemon.目前狂氣值);
         enemyHUD.Setup(enemyPokemon.目前血量);
         playerHUD.SetHUD(playerPokemon);
         player1HUD.SetHUD(playerPokemon1);
