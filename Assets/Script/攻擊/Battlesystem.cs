@@ -353,6 +353,8 @@ public class Battlesystem : MonoBehaviour
         bool isDefeated = false;
         while (currentComboCount < maxComboCount)
         {
+            Attackcha3.gameObject.SetActive(false);
+            AttackIns3.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
             if (canCombo)
             {
